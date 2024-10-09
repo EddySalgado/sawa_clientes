@@ -1,18 +1,9 @@
-.input-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
+
 label {
   margin-bottom: 5px;
   font-weight: bold;
 }
-input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
+
 input:focus {
   outline: none;
   border-color: #007bff;
@@ -21,4 +12,23 @@ input:focus {
 input:disabled {
   background-color: #e9ecef;
   cursor: not-allowed;
+}
+
+.input-container {
+  position: relative;
+}
+input {
+  width: 85%;
+  padding: 10px;
+  padding-left: 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
 }

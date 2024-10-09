@@ -1,21 +1,27 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <app-input
-    label="Correo electrónico"
-    id="email"
-    type="email"
-    placeholder="Ingrese su correo electrónico"
-    formControlName="email"
-  ></app-input>
-  <app-input
-    label="Contraseña"
-    id="password"
-    type="password"
-    placeholder="Ingrese su contraseña"
-    formControlName="password"
-  ></app-input>
-  <app-button
-    [label]="'Iniciar sesión'"
-    [disabled]="false"
-    [type]="'primary'"
-  ></app-button>
-</form>
+<div class="login-container">
+  <div class="login-box">
+    <h1 class="logo">SAWA</h1>
+    <p class="subtitle">Administrador</p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <app-input
+        formControlName="email"
+        label="Correo electrónico"
+        type="email"
+        placeholder="Ingrese su correo electrónico"
+        [icon]="'@'"
+      ></app-input>
+      <app-input
+        formControlName="password"
+        label="Contraseña"
+        type="password"
+        placeholder="Ingrese su contraseña"
+        [icon]="'🔒'"
+      ></app-input>
+      <app-button
+        [label]="'Iniciar sesión'"
+        [disabled]="!loginForm.valid"
+        [type]="'primary'"
+      ></app-button>
+    </form>
+  </div>
+</div>

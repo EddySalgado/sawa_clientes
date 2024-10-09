@@ -1,12 +1,14 @@
+
 <div class="input-container">
   <label [for]="id">{{ label }}</label>
   <input
     [id]="id"
     [type]="type"
+    [placeholder]="placeholder"
     [value]="value"
     (input)="onChange($event)"
     (blur)="onTouched()"
-    [placeholder]="placeholder"
     [disabled]="disabled"
   >
+  <i class="icon" *ngIf="icon">{{icon}}</i>
 </div>
