@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputTexrComponent } from './input-texr.component';
+import { ButtomReusableComponent } from './buttom-reusable.component';
 
-describe('InputTexrComponent', () => {
-  let component: InputTexrComponent;
-  let fixture: ComponentFixture<InputTexrComponent>;
+describe('ButtomReusableComponent', () => {
+  let component: ButtomReusableComponent;
+  let fixture: ComponentFixture<ButtomReusableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputTexrComponent]
+      imports: [ButtomReusableComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(InputTexrComponent);
+    fixture = TestBed.createComponent(ButtomReusableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

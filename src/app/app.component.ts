@@ -1,14 +1,29 @@
-import { Component } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {InputTexrComponent} from "./input-texr/input-texr.component";
+import {InputReusableComponent} from "./input-reusable/input-reusable.component";
+import {LogginComponent} from "./loggin/loggin.component";
+
+
+
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, InputTexrComponent],
-  templateUrl: '<app-input-texr/>',
+  imports: [RouterOutlet, InputReusableComponent, LogginComponent],
+  template: `
+
+   <app-login></app-login>
+  `,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'SAWA_punto_venta';
+  title = 'Sawa inicia sesion';
+  isLoggin: boolean = true;
+  username: string = "Angel";
+
+   guardar() {
+      alert("hoal")
+  }
 }

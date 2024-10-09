@@ -1,0 +1,12 @@
+<div class="input-container">
+  <label [for]="id">{{ label }}</label>
+  <input
+    [id]="id"
+    [type]="type"
+    [value]="value"
+    (input)="onChange($event)"
+    (blur)="onTouched()"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+  >
+</div>
