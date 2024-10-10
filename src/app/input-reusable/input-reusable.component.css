@@ -1,7 +1,12 @@
 
 label {
-  margin-bottom: 5px;
+  display: block;
+  padding-bottom: 5px;
   font-weight: bold;
+  color: #666;
+  font-family: "Roboto", sans-serif;
+  text-align: left; /* Alinea el texto a la izquierda */
+  width: 100%; /* Asegura que el label ocupe todo el ancho disponible */
 }
 
 input:focus {
@@ -14,21 +19,30 @@ input:disabled {
   cursor: not-allowed;
 }
 
+
 .input-container {
   position: relative;
+
+
 }
+
+
 input {
-  width: 85%;
+  font-family: "Roboto", sans-serif;
+
+  width: 100%;
   padding: 10px;
   padding-left: 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 .icon {
   position: absolute;
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #999;
+  color: #000000;
+  z-index: 999;
 }
