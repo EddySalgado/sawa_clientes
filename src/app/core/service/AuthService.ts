@@ -20,3 +20,4 @@ export class AuthService {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { correo, password });
   }
 }
+

@@ -13,7 +13,6 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 .primary {
   background-color: #007bff;
   color: white;
@@ -28,5 +27,4 @@ button:disabled {
 .secondary:hover:not(:disabled) {
   background-color: #545b62;
 }
-
 

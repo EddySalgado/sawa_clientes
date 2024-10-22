@@ -1,0 +1,23 @@
+.quick-options-bar {
+  background-color: #40A3FF;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.quick-options-bar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-options-bar li {
+  margin-bottom: 10px;
+}

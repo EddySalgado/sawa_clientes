@@ -4,10 +4,10 @@
     <p class="subtitle">Administrador</p>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <app-input
-        formControlName="email"
+        formControlName="correo"
         label="Correo electrónico"
         type="email"
-        placeholder="Ingrese su correo electrónico"
+        placeholder="Ingrese su email"
         [icon]="'@'"
       ></app-input>
       <app-input
@@ -19,7 +19,7 @@
       ></app-input>
       <app-button
         [label]="'Iniciar sesión'"
-        [disabled]="!loginForm.valid"
+        [disabled]="false"
         [type]="'primary'"
       ></app-button>
     </form>

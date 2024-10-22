@@ -2,7 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Cambiado de height a min-height */
+  margin: 0; /* Asegura que no haya márgenes */
+  padding: 0; /* Asegura que no haya padding */
+  overflow: hidden; /* Evita el scroll */
   background: linear-gradient(135deg, #87CEEB, #DDA0DD);
 }
 .login-box { /*contenedor blanco del form*/
@@ -12,6 +15,9 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
+
+  max-width: 400px; /* Limita el ancho máximo para pantallas grandes */
+  margin: 20px; /* Agrega un pequeño margen para evitar que toque los bordes */
 }
 .logo {
 
@@ -32,3 +38,5 @@ form {
   flex-direction: column;
   gap: 20px;
 }
+
+

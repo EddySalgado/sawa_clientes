@@ -1,16 +1,16 @@
-
 <div class="input-container">
   <label [for]="id">{{ label }}</label>
 
-
+  <i class="icon" *ngIf="icon">{{icon}}</i>
   <input
     [id]="id"
     [type]="type"
     [placeholder]="placeholder"
-    [value]="value"
-    (input)="onChange($event)"
+    [(ngModel)]="value"
+    (ngModelChange)="onChangeValue($event)"
     (blur)="onTouched()"
     [disabled]="disabled"
   >
-  <i class="icon" *ngIf="icon">{{icon}}</i>
+
 </div>
+
