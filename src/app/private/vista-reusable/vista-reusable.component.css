@@ -1,9 +1,9 @@
 .contenedor{
 
   background: #DDA0DD;
-  
   position: absolute;
   margin-left: 5%;
   width: 95%;
- 
+  padding-left: 5vh;
+
 }

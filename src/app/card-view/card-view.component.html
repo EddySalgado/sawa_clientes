@@ -1,1 +1,41 @@
-<p>card-view works!</p>
+
+    <div class="dni-card">
+        <!-- Encabezado del DNI -->
+        <div class="dni-header">
+            <div class="country">
+              Datos del cliente
+            </div>
+        </div>
+
+      <!-- Sección principal con foto y datos -->
+      <div class="dni-main">
+        <!-- Columna izquierda con foto y firma -->
+        <div class="left-column">
+          <div class="photo-container">
+            <img [src]="photoUrl" alt="Foto DNI" *ngIf="photoUrl">
+            <div class="no-photo" *ngIf="!photoUrl">FOTO</div>
+          </div>
+
+        </div>
+
+        <!-- Columna derecha con información personal -->
+        <div class="right-column">
+
+          <div class="info-row">
+            <div class="label">1er Apellido</div>
+            <div class="value">{{firstLastName}}</div>
+          </div>
+          <div class="info-row">
+            <div class="label">2do Apellido</div>
+            <div class="value">{{secondLastName}}</div>
+          </div>
+          <div class="info-row">
+            <div class="label">Nombres</div>
+            <div class="value">{{names}}</div>
+          </div>
+
+
+      </div>
+
+
+    </div>
