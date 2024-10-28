@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtomReusableComponent } from "../buttom-reusable/buttom-reusable.component";
-import { InputReusableComponent } from "../input-reusable/input-reusable.component";
+import { ButtomReusableComponent } from "../shared/components/button-reusable/buttom-reusable.component";
+import { InputReusableComponent } from "../shared/components/input-reusable/input-reusable.component";
 import { AuthService } from '../core/services/AuthService';
 import { Router } from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";

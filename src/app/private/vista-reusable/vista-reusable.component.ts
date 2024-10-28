@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Ruta1Component} from "../ruta1/ruta1.component";
-import {Ruta2Component} from "../ruta2/ruta2.component";
+import {Ruta1Component} from "../vista-clientes/ruta1.component";
+import {Ruta2Component} from "../Areas_productos/ruta2.component";
 import {CommonModule} from "@angular/common";
 
 @Component({
@@ -15,9 +15,9 @@ export class VistaReusableComponent {
 
   getComponenteRuta() {
     switch (this.ruta) {
-      case 'ruta1':
+      case 'vista-clientes':
         return Ruta1Component;
-      case 'ruta2':
+      case 'Areas_productos':
         return Ruta2Component;
       default:
         return null;

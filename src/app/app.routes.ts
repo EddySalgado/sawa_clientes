@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 import { LogginComponent } from './loggin/loggin.component';
 import { DashboardComponent } from './private/dashboard/dashboard.component';
 import {VistaReusableComponent} from "./private/vista-reusable/vista-reusable.component";
-import {Ruta1Component} from "./private/ruta1/ruta1.component";
-import {Ruta2Component} from "./private/ruta2/ruta2.component";
+import {Ruta1Component} from "./private/vista-clientes/ruta1.component";
+import {Ruta2Component} from "./private/Areas_productos/ruta2.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,12 +18,12 @@ export const routes: Routes = [
         component: VistaReusableComponent
       },
       {
-        path: 'ruta1',
+        path: 'vista-clientes',
         outlet: 'vista-principal',
         component: Ruta1Component
       },
       {
-        path: 'ruta2',
+        path: 'Areas_productos',
         outlet: 'vista-principal',
         component: Ruta2Component
       }

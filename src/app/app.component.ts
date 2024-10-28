@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { InputReusableComponent } from "./input-reusable/input-reusable.component";
+import { InputReusableComponent } from "./shared/components/input-reusable/input-reusable.component";
 import { LogginComponent } from "./loggin/loggin.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from './core/services/AuthService'; // Sin espacio al final

@@ -1,4 +1,4 @@
-<p>aqui incica sjfsdfjsdfjsdkfjsdkfjdsk ruta1 works!</p>
+
 
 <!--<app-card-view
 dni="45678912"
@@ -11,3 +11,16 @@ issueDate="01/01/2020"
 expiryDate="01/01/2028"
 photoUrl="../../../assets/fotoUsuaurio.jpg">
 </app-card-view>-->
+
+<app-header-reusable [titulo]="tituloPadre">
+</app-header-reusable>
+
+<div class="contenedor-main">
+  <app-tabla-reusbale
+    [data]="clientes"
+    [columns]="columns"
+    [showActions]="false">
+  </app-tabla-reusbale>
+</div>
+
+

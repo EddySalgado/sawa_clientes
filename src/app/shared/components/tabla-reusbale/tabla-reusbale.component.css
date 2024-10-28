@@ -1,0 +1,74 @@
+.table-container {
+  width: 100%;
+  margin: 1rem auto;
+
+  background: #6c757d;
+}
+/*___________/
+ */
+
+
+/* Nuevo contenedor flex para el filtro y botón */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+.mat-form-field {
+  flex: 1;
+  margin: 1rem 0; }
+
+/* Estilos para el botón */
+.add-button {
+  height: 48px; /* Altura similar al campo de búsqueda */
+  white-space: nowrap;
+  margin: 1rem 0;
+}
+
+/**/
+
+
+
+.contenedor-tabla {
+  background: #87CEEB;
+  max-height: 400px; /* Altura máxima antes de activar el scroll */
+  overflow: auto;
+  position: relative;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-row:hover {
+  background-color: #f5f5f5;
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Mantener el encabezado fijo mientras se hace scroll */
+th {
+  position: sticky;
+  top: 0;
+  background: #87CEEB;
+  z-index: 1;
+}
+
+/* Asegurarse que el paginador se mantenga en la parte inferior */
+mat-paginator {
+  flex-shrink: 0; /* Evita que el paginador se encoja */
+  background: #6c757d;
+}
+
+/* Para mantener el ancho de las columnas consistente */
+.mat-mdc-table .mat-mdc-header-cell,
+.mat-mdc-table .mat-mdc-cell {
+  white-space: nowrap;
+  padding: 0 1rem;
+}

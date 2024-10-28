@@ -1,5 +1,6 @@
 export interface ClientesResponse {
-  nome: string;
+  id: number;
+  nombre: string;
   telefono: number;
   "email": string,
   "id_usuario": number
