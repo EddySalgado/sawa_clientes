@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {Ruta1Component} from "../vista-clientes/ruta1.component";
 import {Ruta2Component} from "../Areas_productos/ruta2.component";
 import {CommonModule} from "@angular/common";
+import {VistaProductosComponent} from "../vista-productos/vista-productos.component";
 
 @Component({
   selector: 'app-vista-reusable',
@@ -19,6 +20,8 @@ export class VistaReusableComponent {
         return Ruta1Component;
       case 'Areas_productos':
         return Ruta2Component;
+      case 'vista_productos':
+        return VistaProductosComponent;
       default:
         return null;
     }
