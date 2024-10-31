@@ -4,6 +4,7 @@ import { DashboardComponent } from './private/dashboard/dashboard.component';
 import {VistaReusableComponent} from "./private/vista-reusable/vista-reusable.component";
 import {Ruta1Component} from "./private/vista-clientes/ruta1.component";
 import {Ruta2Component} from "./private/Areas_productos/ruta2.component";
+import {VistaProductosComponent} from "./private/vista-productos/vista-productos.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,6 +27,12 @@ export const routes: Routes = [
         path: 'Areas_productos',
         outlet: 'vista-principal',
         component: Ruta2Component
+      }
+      ,
+      {
+        path: 'vista_productos',
+        outlet: 'vista-principal',
+        component: VistaProductosComponent
       }
     ]
   }
