@@ -71,7 +71,7 @@ export class TablaReusbaleComponent implements  OnInit{
 
   private updateDataSource(data: any[]) {
     console.log('Updating dataSource with:', data);
-    const clientesData = data[0]?.clientes || [];
+    const clientesData = data[0]?.datos || [];
     if (!this.dataSource) {
       console.log("dentro del if de updatingdatasource")
       this.dataSource = new MatTableDataSource<any>();

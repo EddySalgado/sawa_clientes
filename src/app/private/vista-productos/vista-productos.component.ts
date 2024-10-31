@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AreaProductoResponse} from "../../core/services/api/area_producto/AreaProductoResponse";
-import {AreaProductoService} from "../../core/services/api/area_producto/AreaProductoService";
-
+import { CardViewComponent } from '../../shared/components/card-view/card-view.component';
 import {ProductoService} from "../../core/services/api/productos/ProductoService";
 import {ProductoResponse} from "../../core/services/api/productos/ProductoResponse";
+import {JsonPipe} from "@angular/common";
+import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
+import { HeaderReusableComponent } from "../../shared/components/header-reusable/header-reusable.component";
 
 
 
@@ -11,31 +12,41 @@ import {ProductoResponse} from "../../core/services/api/productos/ProductoRespon
 @Component({
   selector: 'app-vista-productos',
   standalone: true,
-  imports: [],
+  imports: [TablaReusbaleComponent, HeaderReusableComponent, CardViewComponent, JsonPipe],
   templateUrl: './vista-productos.component.html',
   styleUrl: './vista-productos.component.css'
 })
 export class VistaProductosComponent implements OnInit{
+//titulo de la tabla productos.
+  Titulo: string = "Productos";
 
-  areas: ProductoResponse[] = [];
+  productos: ProductoResponse[] = [];
+  columnas = [
+    {key: 'id', label: 'ID Producto'},
+    {key: 'cantidad', label: 'Cantidad'},
+    {key: 'nombre', label: 'Nombre del producto'},
+    {key: 'precio', label: 'Precio'}
+  ];
+
   constructor(private ProductosService: ProductoService) {}
 
   ngOnInit() {
-    this.obtenerProductos();
+    this.obtenerProductos();  
   }
 
   obtenerProductos() {
     // Asumiendo que quieres obtener el cliente con ID 1
-    const clienteId = 22; // O el ID que necesites
+    const ClienteId = 22; // O el ID que necesites
 
-    this.ProductosService.getProductosById(clienteId)
+    this.ProductosService.getProductosById(ClienteId)
       .subscribe({
         next: (response) => {
-          console.log('Datos del cliente:', response);
-          this.areas = Array.isArray(response) ? response : [response];
+          console.log('Datos del producto:', response);
+        // Asignar directamente la respuesta al array `productos`
+        this.productos = Array.isArray(response) ? response : [response];
         },
         error: (error) => {
-          console.error('Error al obtener cliente:', error);
+          console.error('Error al obtener producto:', error);
         }
       });
   }
