@@ -26,6 +26,8 @@ export class TablaReusbaleComponent implements  OnInit{
   @Input() columns: {key: string, label: string}[] = [];
   @Input() showActions: boolean = false;
 
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
  // @ViewChild(MatTable) table!: MatTable<any>;
@@ -34,22 +36,15 @@ export class TablaReusbaleComponent implements  OnInit{
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = [];
 
+
   constructor() {
     this.dataSource = new MatTableDataSource<any>([]);
     console.log("se inicia el constructor de la tabla")
   }
 
-  /*ngOnInit() {
-    console.log('Columnas recibidas:', this.columns);
-    console.log('Datos recibidos:', this.data);
-    this.displayedColumns = this.columns.map(col => col.key);
-    if (this.showActions) {
-      this.displayedColumns.push('actions');
-    }
-    console.log('DisplayedColumns:', this.displayedColumns);
-    this.dataSource = new MatTableDataSource(this.data); // Inicializar con los datos
-    console.log('Datos actualizados en dataSource:', this.dataSource.data);
-  }*/
+
+
+
 
   ngOnInit() {
     console.log('OnInit - Columns:', this.columns);
@@ -61,6 +56,8 @@ export class TablaReusbaleComponent implements  OnInit{
     }
   }
 
+
+
   private initializeColumns() {
     this.displayedColumns = this.columns.map(col => col.key);
     if (this.showActions) {
@@ -68,6 +65,8 @@ export class TablaReusbaleComponent implements  OnInit{
     }
     console.log('DisplayedColumns:', this.displayedColumns);
   }
+
+
 
   private updateDataSource(data: any[]) {
     console.log('Updating dataSource with:', data);
@@ -87,22 +86,130 @@ export class TablaReusbaleComponent implements  OnInit{
     }
   }
 
+  /*export class TablaReusbaleComponent implements OnInit {
+  @Input() data: any[] = [];
+  @Input() columns: { key: string, label: string }[] = [];
+  @Input() showActions: boolean = false;
+  @Input() dataProperty?: string; // Nueva propiedad opcional para especificar el nombre de la propiedad de datos
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  dataSource: MatTableDataSource<any>;
+  displayedColumns: string[] = [];
+
+  constructor() {
+    this.dataSource = new MatTableDataSource<any>([]);
+  }
+
+  ngOnInit() {
+    this.initializeColumns();
+    if (this.data && this.data.length > 0) {
+      this.updateDataSource(this.data);
+    }
+  }
+
+  private initializeColumns() {
+    this.displayedColumns = this.columns.map(col => col.key);
+    if (this.showActions) {
+      this.displayedColumns.push('actions');
+    }
+  }
+
+  private extractData(data: any[]): any[] {
+    // Si no hay datos, retornar array vacío
+    if (!data || data.length === 0) {
+      return [];
+    }
+
+    // Si se especificó una propiedad de datos específica
+    if (this.dataProperty) {
+      // Si los datos están en el primer elemento
+      if (data[0] && data[0][this.dataProperty]) {
+        return data[0][this.dataProperty];
+      }
+      // Si los datos están directamente en el array
+      const extractedData = data.map(item => item[this.dataProperty]).filter(item => item);
+      if (extractedData.length > 0) {
+        return extractedData;
+      }
+    }
+
+    // Si los datos ya son un array plano o no se encontró la propiedad especificada
+    // intentar usar los datos directamente
+    if (Array.isArray(data)) {
+      return data;
+    }
+
+    // Si nada más funciona, convertir a array si no lo es
+    return Array.isArray(data) ? data : [data];
+  }
+
+  private updateDataSource(data: any[]) {
+    if (!this.dataSource) {
+      this.dataSource = new MatTableDataSource<any>();
+    }
+
+    // Procesar los datos usando el método extractData
+    const processedData = this.extractData(data);
+    this.dataSource.data = processedData;
+
+    // Configurar paginator y sort
+    if (this.paginator) {
+      this.dataSource.paginator = this.paginator;
+    }
+    if (this.sort) {
+      this.dataSource.sort = this.sort;
+    }
+  }
+
+  ngAfterViewInit() {
+    if (this.dataSource) {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data']) {
+      const currentData = changes['data'].currentValue;
+      if (currentData) {
+        this.updateDataSource(Array.isArray(currentData) ? currentData : [currentData]);
+      }
+    }
+
+    if (changes['columns']) {
+      this.initializeColumns();
+    }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  onEdit(element: any) {
+    console.log('Editar:', element);
+  }
+
+  onDelete(element: any) {
+    console.log('Eliminar:', element);
+  }
+}*/
+
+
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-/*(changes: SimpleChanges) {
-    console.log('OnChanges - Changes:', changes);
-    if (changes['data']) {
-      console.log('OnChanges - New data:', changes['data'].currentValue);
-      if (!this.dataSource) {
-        this.dataSource = new MatTableDataSource();
-      }
-      this.dataSource.data = changes['data'].currentValue || [];
-    }
-  }*/
+
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("se detecto al gun cambio")
@@ -141,7 +248,7 @@ export class TablaReusbaleComponent implements  OnInit{
     return this.dataSource?.data || [];
   }
 
-  // Añade este método para debugging
+  // Aña
   ngDoCheck() {
    // console.log('DoCheck - DataSource data:', this.dataSource?.data);
     //console.log('DoCheck - Table data:', this.tableData);
@@ -150,6 +257,20 @@ export class TablaReusbaleComponent implements  OnInit{
 
 
 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
