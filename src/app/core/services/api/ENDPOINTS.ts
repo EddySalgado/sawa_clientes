@@ -10,5 +10,28 @@ export const ENDPOINTS = {
 
   PRODUCTOS:{
     GET_BY_ID: (id: number | string) => `/list-productos/${id}` // Template para URL con parámetro
+  },
+
+  AREA_TRABAJADORES:{
+    GET_BY_ID: (id: number | string) => `/list-areas-trabajador/${id}`
+  },
+
+  COMPRAS:{
+    GET_BY_ID: (id: number | string) => `/list-compras/${id}`
+  },
+
+  PROVEDORES:{
+    GET_BY_ID: (id: number | string) => `/list-provadores/${id}`
+  },
+
+  SUCURSALES:{
+    GET_BY_ID: (id: number | string) => `/list-sucursales/${id}`
+  },
+
+  TRABAJADORES:{
+    GET_BY_ID: (id: number | string) => `/list-trabajadores/${id}`
+  },
+  VENTAS:{
+    GET_BY_ID: (id: number | string) => `/list-ventas/${id}`
   }
 };
