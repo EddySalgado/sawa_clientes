@@ -3,6 +3,7 @@ import {Ruta1Component} from "../vista-clientes/ruta1.component";
 import {Ruta2Component} from "../Areas_productos/ruta2.component";
 import {CommonModule} from "@angular/common";
 import {VistaProductosComponent} from "../vista-productos/vista-productos.component";
+import {VistaAreaTrabajdorComponent} from "../vista-area-trabajdor/vista-area-trabajdor.component";
 
 @Component({
   selector: 'app-vista-reusable',
@@ -22,6 +23,8 @@ export class VistaReusableComponent {
         return Ruta2Component;
       case 'vista_productos':
         return VistaProductosComponent;
+      case 'vista_area_trabajador':
+        return VistaAreaTrabajdorComponent; //esto retorna el componente renderizar
       default:
         return null;
     }
