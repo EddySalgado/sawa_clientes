@@ -1,0 +1,47 @@
+<!--<div class="modal-overlay" [class.show]="isOpen" (click)="closeOnOverlay($event)">
+  <div class="modal-content" [ngStyle]="{'width': width}">
+    <div class="modal-header">
+      <h2>{{title}}</h2>
+      <button class="close-button" (click)="onClose()">
+        <span>&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer" *ngIf="showFooter">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </div>
+</div>-->
+
+<div class="modal-overlay" [class.show]="isOpen" (click)="closeOnOverlay($event)">
+  <div class="modal-content" [ngStyle]="{'width': width}">
+
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <div class="window-controls">
+          <button class="control close" (click)="onClose()">
+            <span class="control-icon">×</span>
+          </button>
+           <!-- <button class="control minimize">
+              <span class="control-icon">−</span>
+            </button>
+            <button class="control maximize">
+              <span class="control-icon">+</span>
+            </button>
+            -->
+        </div>
+        {{title}}
+      </h2>
+    </div>
+
+
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer" *ngIf="showFooter">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import {VistaReusableComponent} from "./private/vista-reusable/vista-reusable.co
 import {Ruta1Component} from "./private/vista-clientes/ruta1.component";
 import {Ruta2Component} from "./private/Areas_productos/ruta2.component";
 import {VistaProductosComponent} from "./private/vista-productos/vista-productos.component";
+import {VistaAreaTrabajdorComponent} from "./private/vista-area-trabajdor/vista-area-trabajdor.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -33,6 +34,11 @@ export const routes: Routes = [
         path: 'vista_productos',
         outlet: 'vista-principal',
         component: VistaProductosComponent
+      },
+      {
+        path: 'vista_area_trabajador',
+        outlet: 'vista-principal',
+        component: VistaAreaTrabajdorComponent //añadimos una ruta para la barra de opciones
       }
     ]
   }

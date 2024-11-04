@@ -5,17 +5,25 @@ import {ClientesResponse} from "../../core/services/api/Clientes/ClientesRespons
 import {TablaReusbaleComponent} from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import {JsonPipe} from "@angular/common";
 import {HeaderReusableComponent} from "../../shared/components/header-reusable/header-reusable.component";
+import {
+  VentanaEmergenteReusableComponent
+} from "../../shared/components/ventana-emergente-reusable/ventana-emergente-reusable.component";
+import {ButtomReusableComponent} from "../../shared/components/button-reusable/buttom-reusable.component";
+import {InputReusableComponent} from "../../shared/components/input-reusable/input-reusable.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @Component({
   selector: 'app-vista-clientes',
   standalone: true,
-  imports: [CardViewComponent, TablaReusbaleComponent, JsonPipe, HeaderReusableComponent],
+  imports: [CardViewComponent, TablaReusbaleComponent, JsonPipe, HeaderReusableComponent, VentanaEmergenteReusableComponent, ButtomReusableComponent, InputReusableComponent, ReactiveFormsModule],
   templateUrl: './ruta1.component.html',
   styleUrl: './ruta1.component.css'
 })
 export class Ruta1Component implements OnInit {
   tituloPadre: string = "Clientes";
+  //de la ventana
+  modalAbierto = false;
 
   clientes: ClientesResponse[] = [];
   columns = [
@@ -28,7 +36,7 @@ export class Ruta1Component implements OnInit {
   constructor(private clientesService: ClientesService) {}
 
   ngOnInit() {
-    this.obtenerClientes();
+   // this.obtenerClientes();
   }
 
   obtenerClientes() {
@@ -47,6 +55,18 @@ export class Ruta1Component implements OnInit {
       });
   }
 
+
+  botonNuevoCliente() {
+    this.modalAbierto = true;
+  }
+
+
+
+
+
+  cerrarModal() {
+    this.modalAbierto = false;
+  }
 
 
 }

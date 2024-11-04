@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {MatTableModule, MatTable, MatTableDataSource} from '@angular/material/table';
 import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { MatSortModule, MatSort } from '@angular/material/sort';
@@ -25,6 +25,8 @@ export class TablaReusbaleComponent implements  OnInit{
   @Input() data: any[] = [];
   @Input() columns: {key: string, label: string}[] = [];
   @Input() showActions: boolean = false;
+  @Output() onNuevoClick = new EventEmitter<void>(); //rcibe el metodo que se pasa al boton para ejecutarlo
+
 
 
 
@@ -40,6 +42,10 @@ export class TablaReusbaleComponent implements  OnInit{
   constructor() {
     this.dataSource = new MatTableDataSource<any>([]);
     console.log("se inicia el constructor de la tabla")
+  }
+
+  manejarClickNuevoBoton() {
+    this.onNuevoClick.emit();
   }
 
 

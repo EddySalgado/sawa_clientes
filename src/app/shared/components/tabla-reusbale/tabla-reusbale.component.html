@@ -12,7 +12,8 @@
     <app-button
       [label]="'Nuevo cliente'"
       [disabled]="false"
-      [type]="'primary'">
+      [type]="'primary'"
+      (buttonClick)="manejarClickNuevoBoton()"> <!--metodo a ejecutar por boton-->
     </app-button>
   </div>
 

@@ -1,0 +1,189 @@
+
+
+.modal-overlay{ /*el fondo trasero*/
+  display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+z-index: 1000;
+justify-content: center;
+align-items: center;
+}
+
+.modal-overlay.show {
+  display: flex;
+
+}
+
+.modal-content {
+  background: rgba(236, 236, 236, 0.95);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalAppear 0.2s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*.modal-header {
+  padding: 2px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid #d1d1d1;
+}*/
+
+.modal-header {
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid #d1d1d1;
+  height: 28px;
+}
+
+/*.window-controls {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+  background: #1aab29;
+}*/
+
+.window-controls {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+  background: transparent;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-icon {
+  opacity: 0;
+  font-size: 10px;
+  transition: opacity 0.2s;
+  position: absolute;
+  color: #4a4a4a;
+}
+
+.control:hover .control-icon {
+  opacity: 1;
+}
+
+.close {
+  background: #ff5f57;
+  border: 1px solid #e0443e;
+}
+
+.minimize {
+  background: #ffbd2e;
+  border: 1px solid #dea123;
+}
+
+.maximize {
+  background: #28c940;
+  border: 1px solid #1aab29;
+}
+
+/*.modal-title {
+  margin: 0;
+  font-size: 14px;
+  color: #4a4a4a;
+  font-weight: 500;
+}*/
+
+.modal-title {
+  margin: 0;
+  font-size: 14px;
+  color: #4a4a4a;
+  font-weight: 500;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-body {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid #e5e5e5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Estilos para cuando se hace hover sobre la ventana */
+.modal-content:hover .control.close {
+  background: #ff5f57;
+}
+
+.modal-content:hover .control.minimize {
+  background: #ffbd2e;
+}
+
+.modal-content:hover .control.maximize {
+  background: #28c940;
+}
+
+/* Scrollbar estilo macOS */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

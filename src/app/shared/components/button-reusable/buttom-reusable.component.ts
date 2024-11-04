@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgClass} from "@angular/common";
 
 @Component({
@@ -14,4 +14,10 @@ export class ButtomReusableComponent {
   @Input() label: string = 'Button';
   @Input() disabled: boolean = false;
   @Input() type: 'primary' | 'secondary' = 'primary';
+  @Output() buttonClick = new EventEmitter<void>();
+
+  //metodo a ejecutar por el boton
+  onClick() {
+    this.buttonClick.emit();
+  }
 }

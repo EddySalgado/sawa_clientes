@@ -1,3 +1,4 @@
-<button [disabled]="disabled" [ngClass]="{'primary': type === 'primary', 'secondary': type === 'secondary'}">
-  {{ label }}
+<button [disabled]="disabled" [ngClass]="{'primary': type === 'primary', 'secondary': type === 'secondary'}"
+        (click)="onClick()"> <!-- recibe el metodo  que ejecutara-->
+        {{ label }}
 </button>

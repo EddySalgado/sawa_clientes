@@ -5,3 +5,36 @@
   max-height: 80vh;
 
 }
+
+/*css del dormulario de la ventana emergernte de nuevo usuario*/
+
+.div_formulario_nuevo_cliente {
+
+
+  border-radius: 8px;
+  max-width: 800px;  /* Aumentado para acomodar 2 columnas */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2 columnas de igual tamaño */
+  grid-template-rows: repeat(3, auto);  /* 3 filas que se ajustan al contenido */
+  gap: 1.5rem;  /* Espacio entre elementos del grid */
+}
+
+
+app-input:hover {
+  transform: translateX(5px);
+}
+app-input {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .div_formulario_nuevo_cliente {
+    grid-template-columns: 1fr;  /* Una sola columna en pantallas pequeñas */
+    padding: 1rem;
+    margin: 0 1rem;
+  }
+}
+

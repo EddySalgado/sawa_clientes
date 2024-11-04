@@ -12,6 +12,82 @@ expiryDate="01/01/2028"
 photoUrl="../../../assets/fotoUsuaurio.jpg">
 </app-card-view>-->
 
+
+<app-ventana-emergente-reusable
+  [isOpen]="modalAbierto"
+  [title]="'Nuevo Cliente'"
+  [width]="'600px'"
+  (closeModal)="cerrarModal()">
+
+  <!-- Contenido del modal -->
+  <div class="div_formulario_nuevo_cliente">
+
+
+    <!-- nombre -->
+    <app-input
+      formControlName="nombre"
+      label=""
+      type="text"
+      placeholder="nombre del usuario"
+      [icon]="'👤'">
+    </app-input>
+    <!-- telefono -->
+    <app-input
+      formControlName="telefono"
+      label=""
+      type="numeric"
+      placeholder="numero telfonico"
+      [icon]="'#'">
+    </app-input>
+    <!-- email -->
+    <app-input
+      formControlName="correo"
+      label=""
+      type="email"
+      placeholder="email del usuario"
+      [icon]="'@'">
+    </app-input>
+    <!-- direccion -->
+    <app-input
+      formControlName="direccion"
+      label=""
+      type="text"
+      placeholder="direccion del usuario"
+      [icon]="'📫'">
+    </app-input>
+    <!-- descuento -->
+    <app-input
+      formControlName="descuento"
+      label=""
+      type="numeric"
+      placeholder="descuento del usuario"
+      [icon]="'%'">
+    </app-input>
+
+    <!-- boton guardar -->
+    <app-button>
+      Guardar
+    </app-button>
+
+
+  </div>
+
+  <!-- Footer del modal --
+  <div footer>
+    <app-button
+      [label]="'Cancelar'"
+      [type]="'secondary'"
+      (buttonClick)="cerrarModal()">
+    </app-button>
+    <app-button
+      [label]="'Guardar'"
+      [type]="'primary'"
+      (buttonClick)="botonNuevoCliente()">
+    </app-button>
+  </div>-->
+</app-ventana-emergente-reusable>
+
+
 <app-header-reusable [titulo]="tituloPadre">
 </app-header-reusable>
 
@@ -19,7 +95,8 @@ photoUrl="../../../assets/fotoUsuaurio.jpg">
   <app-tabla-reusbale
     [data]="clientes"
     [columns]="columns"
-    [showActions]="false">
+    [showActions]="false"
+    (onNuevoClick)="botonNuevoCliente()"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->
   </app-tabla-reusbale>
 </div>
 
