@@ -13,64 +13,77 @@ photoUrl="../../../assets/fotoUsuaurio.jpg">
 </app-card-view>-->
 
 
+<app-alert
+  *ngIf="mostrarAlert"
+  [type]="tipoAlert"
+  [message]="mensajeAlert"
+  [icon]="tipoAlert === 'success' ? 'check_circle' : 'error'">
+</app-alert>
+
+
 <app-ventana-emergente-reusable
   [isOpen]="modalAbierto"
   [title]="'Nuevo Cliente'"
   [width]="'600px'"
   (closeModal)="cerrarModal()">
 
-  <!-- Contenido del modal -->
-  <div class="div_formulario_nuevo_cliente">
+  <form [formGroup]="formularioCliente" class="div_formulario_nuevo_cliente">
+
+    <!-- Contenido del modal -->
 
 
-    <!-- nombre -->
-    <app-input
-      formControlName="nombre"
-      label=""
-      type="text"
-      placeholder="nombre del usuario"
-      [icon]="'👤'">
-    </app-input>
-    <!-- telefono -->
-    <app-input
-      formControlName="telefono"
-      label=""
-      type="numeric"
-      placeholder="numero telfonico"
-      [icon]="'#'">
-    </app-input>
-    <!-- email -->
-    <app-input
-      formControlName="correo"
-      label=""
-      type="email"
-      placeholder="email del usuario"
-      [icon]="'@'">
-    </app-input>
-    <!-- direccion -->
-    <app-input
-      formControlName="direccion"
-      label=""
-      type="text"
-      placeholder="direccion del usuario"
-      [icon]="'📫'">
-    </app-input>
-    <!-- descuento -->
-    <app-input
-      formControlName="descuento"
-      label=""
-      type="numeric"
-      placeholder="descuento del usuario"
-      [icon]="'%'">
-    </app-input>
+      <!-- nombre -->
+      <app-input
+        formControlName="nombre"
+        label="Nombre *"
+        type="text"
+        placeholder="nombre apellido"
+        [icon]="'👤'">
+      </app-input>
+      <!-- telefono -->
+      <app-input
+        formControlName="telefono"
+        label="Telefono"
+        type="numeric"
+        placeholder="1234567890"
+        [icon]="'#'">
+      </app-input>
+      <!-- email -->
+      <app-input
+        formControlName="correo"
+        label="Correo"
+        type="email"
+        placeholder="usuario@dominio.com"
+        [icon]="'@'">
+      </app-input>
+      <!-- direccion -->
+      <app-input
+        formControlName="direccion"
+        label="Direccion"
+        type="text"
+        placeholder="calle, num exterior"
+        [icon]="'📫'">
+      </app-input>
+      <!-- descuento -->
+      <app-input
+        formControlName="descuento"
+        label="Descuento"
+        type="numeric"
+        placeholder="descuento aplicable"
+        [icon]="'%'">
+      </app-input>
 
-    <!-- boton guardar -->
-    <app-button>
-      Guardar
-    </app-button>
+      <!-- boton guardar -->
+      <app-button
+        [label]="'Guardar'"
+        [disabled]="false"
+        (buttonClick)="botonagregarClienteVentanaEmergente()"
+        [type]="'primary'">
+      </app-button>
 
 
-  </div>
+
+  </form>
 
   <!-- Footer del modal --
   <div footer>
@@ -95,7 +108,7 @@ photoUrl="../../../assets/fotoUsuaurio.jpg">
   <app-tabla-reusbale
     [data]="clientes"
     [columns]="columns"
-    [showActions]="false"
+    [showActions]="true"
     (onNuevoClick)="botonNuevoCliente()"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->
   </app-tabla-reusbale>
 </div>

@@ -1,11 +1,16 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgStyle} from "@angular/common";
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-ventana-emergente-reusable',
   standalone: true,
   imports: [
-    NgStyle
+    NgStyle,
+    ReactiveFormsModule
   ],
   templateUrl: './ventana-emergente-reusable.component.html',
   styleUrl: './ventana-emergente-reusable.component.css'

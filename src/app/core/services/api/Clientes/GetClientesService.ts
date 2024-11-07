@@ -25,5 +25,19 @@ export class ClientesService {
       })
     );
   }
+
+  // 2. Crear nuevo cliente (POST)
+  createCliente(cliente: ClientesResponse): Observable<ClientesResponse> {
+    return this.http.post<ClientesResponse>(
+      `${this.apiUrl}${ENDPOINTS.CLIENTES.CREATE}`,
+      cliente
+    ).pipe(
+      tap(response => console.log('Cliente creado:', response)),
+      catchError(error => {
+        console.error('Error al crear el cliente:', error);
+        throw error;
+      })
+    );
+  }
 }
-//
+

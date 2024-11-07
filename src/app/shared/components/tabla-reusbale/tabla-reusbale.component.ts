@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import {ButtomReusableComponent} from "../button-reusable/buttom-reusable.component";
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {MatIconButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-tabla-reusbale',
@@ -17,7 +19,7 @@ import {ButtomReusableComponent} from "../button-reusable/buttom-reusable.compon
     MatSortModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule, ButtomReusableComponent],
+    MatIconModule, ButtomReusableComponent, MatMenu, MatMenuTrigger, MatIconButton, MatMenuItem],
   templateUrl: './tabla-reusbale.component.html',
   styleUrl: './tabla-reusbale.component.css'
 })
@@ -41,7 +43,7 @@ export class TablaReusbaleComponent implements  OnInit{
 
   constructor() {
     this.dataSource = new MatTableDataSource<any>([]);
-    console.log("se inicia el constructor de la tabla")
+    //console.log("se inicia el constructor de la tabla")
   }
 
   manejarClickNuevoBoton() {
@@ -75,10 +77,10 @@ export class TablaReusbaleComponent implements  OnInit{
 
 
   private updateDataSource(data: any[]) {
-    console.log('Updating dataSource with:', data);
+    //console.log('Updating dataSource with:', data);
     const clientesData = data[0]?.datos || [];
     if (!this.dataSource) {
-      console.log("dentro del if de updatingdatasource")
+     // console.log("dentro del if de updatingdatasource")
       this.dataSource = new MatTableDataSource<any>();
     }
     this.dataSource.data = clientesData;
@@ -218,13 +220,13 @@ export class TablaReusbaleComponent implements  OnInit{
 
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log("se detecto al gun cambio")
+   // console.log("se detecto al gun cambio")
     if (changes['data']) {
-      console.log("dentro del if de cuando se detectyo un cambio")
+    //  console.log("dentro del if de cuando se detectyo un cambio")
       const currentData = changes['data'].currentValue;
-      console.log('Data changed:', currentData);
+    //  console.log('Data changed:', currentData);
       if (Array.isArray(currentData)) {
-        console.log("dentro del segundo if del cuandose detecto un cambio");
+        //console.log("dentro del segundo if del cuandose detecto un cambio");
         this.updateDataSource(currentData);
       }
     }
@@ -245,10 +247,12 @@ export class TablaReusbaleComponent implements  OnInit{
   onEdit(element: any) {
     // Emitir evento de edición
     console.log('Editar:', element);
+    alert("editanfo")
   }
   onDelete(element: any) {
     // Emitir evento de eliminación
     console.log('Eliminar:', element);
+    alert("eliminando")
   }
   get tableData() {
     return this.dataSource?.data || [];

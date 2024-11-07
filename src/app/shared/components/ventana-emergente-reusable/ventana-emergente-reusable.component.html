@@ -40,7 +40,7 @@
     <div class="modal-body">
       <ng-content></ng-content>
     </div>
-    <div class="modal-footer" *ngIf="showFooter">
+    <div class="modal-footer" [@if]="showFooter">
       <ng-content select="[footer]"></ng-content>
     </div>
   </div>
