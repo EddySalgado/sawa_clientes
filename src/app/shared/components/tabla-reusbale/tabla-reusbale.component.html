@@ -3,13 +3,14 @@
 <div class="table-container">
   <!--tro -->
   <div class="filter-container">
-    <mat-form-field>
+    <mat-form-field class="mat-form-field">
       <mat-label>Filtro</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
     <app-button
+      class="add-button"
       [label]="'Nuevo cliente'"
       [disabled]="false"
       [type]="'primary'">
