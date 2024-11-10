@@ -18,3 +18,12 @@
 .quick-options-bar li {
   margin-bottom: 10px;
 }
+
+/*Ajuste del tamaño de la imagenes*/
+.img-icon{
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin-left: 15%;
+  margin-top: 5;
+}

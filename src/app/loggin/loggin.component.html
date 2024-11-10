@@ -17,11 +17,16 @@
         placeholder="Ingrese su contraseña"
         [icon]="'🔒'"
       ></app-input>
-      <app-button
-        [label]="'Iniciar sesión'"
-        [disabled]="false"
-        [type]="'primary'"
-      ></app-button>
+      <div class="button-container">
+        <app-button
+          class="button"
+          [label]="'Iniciar sesión'"
+          [disabled]="false"
+          [type]="'primary'"
+          onclick="this.classList.add('is-hidden'); document.querySelector('.loading-spinner').style.display='block';"
+        ></app-button>
+        <div class="loading-spinner" style="display: none;"></div>
+      </div>
     </form>
   </div>
 </div>

@@ -17,15 +17,17 @@
 
 }
 
-.mat-form-field {
-  flex: 1;
-  margin: 1rem 0; }
+/* Estilos para el campo de filtro */
+.mat-form-field { 
+  height: 61px;
+}
 
 /* Estilos para el botón */
 .add-button {
-  height: 48px; /* Altura similar al campo de búsqueda */
+  /* Altura similar al campo de búsqueda */
   white-space: nowrap;
   margin: 1rem 0;
+  margin-top: -6px;
 }
 
 /**/
