@@ -26,7 +26,6 @@ export class VistaTrabajadorComponent {
     {key: 'email', label: 'Correo electronico'},
     {key: 'telefono', label: 'Telefono'},
     {key: 'sueldo', label: 'Sueldo'},
-    {key: 'id_sucursal', label: 'ID de la sucursal'},
     {key: 'id_area_trabajador', label: 'ID del Area del Trbajador'}
   ];
 
