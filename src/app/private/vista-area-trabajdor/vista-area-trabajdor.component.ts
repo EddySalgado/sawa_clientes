@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CardViewComponent } from '../../shared/components/card-view/card-view.component';
+import { CardViewComponent } from '../../shared/components/card-view-reusable/card-view.component';
 import {JsonPipe} from "@angular/common";
 import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import { HeaderReusableComponent } from "../../shared/components/header-reusable/header-reusable.component";

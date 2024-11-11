@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JsonPipe } from "@angular/common";
 import { SucursalesResponse } from "../../core/services/api/sucursales/SucursalesResponse";
 import { SucursalesService } from "../../core/services/api/sucursales/SucursalesService";
-import { CardViewComponent } from "../../shared/components/card-view/card-view.component";
+import { CardViewComponent } from "../../shared/components/card-view-reusable/card-view.component";
 import { HeaderReusableComponent } from "../../shared/components/header-reusable/header-reusable.component";
 import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 

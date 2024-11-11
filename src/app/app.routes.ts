@@ -3,9 +3,9 @@ import { LogginComponent } from './loggin/loggin.component';
 import { DashboardComponent } from './private/dashboard/dashboard.component';
 import {VistaReusableComponent} from "./private/vista-reusable/vista-reusable.component";
 import {Ruta1Component} from "./private/vista-clientes/ruta1.component";
-import {Ruta2Component} from "./private/Areas_productos/ruta2.component";
+import {Ruta2Component} from "./private/vista-area_productos/ruta2.component";
 import {VistaProductosComponent} from "./private/vista-productos/vista-productos.component";
-import {CompraComponent} from "./private/compra/compra.component";
+import {CompraComponent} from "./private/vista-compra/compra.component";
 import {VistaAreaTrabajdorComponent} from "./private/vista-area-trabajdor/vista-area-trabajdor.component";
 import {VistaSucursalComponent} from "./private/vista-sucursal/vista-sucursal.component";
 import {VistaVentaComponent} from "./private/vista-venta/vista-venta.component";
@@ -29,7 +29,7 @@ export const routes: Routes = [
         component: Ruta1Component
       },
       {
-        path: 'Areas_productos',
+        path: 'vista-area_productos',
         outlet: 'vista-principal',
         component: Ruta2Component
       }
@@ -48,9 +48,9 @@ export const routes: Routes = [
       }
       ,
 
-      //Vista compra.
+      //Vista vista-compra.
       {
-        path: 'compra',
+        path: 'vista-compra',
         outlet: 'vista-principal',
         component: CompraComponent
       }

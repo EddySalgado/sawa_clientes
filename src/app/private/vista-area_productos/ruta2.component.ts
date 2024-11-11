@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {AreaProductoService} from "../../core/services/api/area_producto/AreaProductoService";
 import {AreaProductoResponse} from "../../core/services/api/area_producto/AreaProductoResponse";
-import { CardViewComponent } from '../../shared/components/card-view/card-view.component';
+import { CardViewComponent } from '../../shared/components/card-view-reusable/card-view.component';
 import {JsonPipe} from "@angular/common";
 import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import { HeaderReusableComponent } from "../../shared/components/header-reusable/header-reusable.component";
 
 
 @Component({
-  selector: 'app-Areas_productos',
+  selector: 'app-vista-area_productos',
   standalone: true,
   imports: [CardViewComponent, HeaderReusableComponent, TablaReusbaleComponent, JsonPipe],
   templateUrl: './ruta2.component.html',
@@ -16,7 +16,7 @@ import { HeaderReusableComponent } from "../../shared/components/header-reusable
 })
 export class Ruta2Component implements OnInit{
   title: string = "Area de productos"
-  
+
   areas: AreaProductoResponse[] = [];
   columnas = [
     {key: 'id', label: 'ID Area'},

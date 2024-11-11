@@ -1,13 +1,13 @@
 import { Component } from '@angular/core'
 import { JsonPipe } from "@angular/common";
-import { CardViewComponent} from "../../shared/components/card-view/card-view.component";
+import { CardViewComponent} from "../../shared/components/card-view-reusable/card-view.component";
 import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import {  HeaderReusableComponent } from "../../shared/components/header-reusable/header-reusable.component";
 import { ComprasResponse } from "../../core/services/api/compras/ComprasResponse";
 import { ComprasService } from "../../core/services/api/compras/ComprasService";
 
 @Component({
-  selector: 'app-compra',
+  selector: 'app-vista-compra',
   standalone: true,
   imports: [JsonPipe, TablaReusbaleComponent, HeaderReusableComponent, CardViewComponent],
   templateUrl: './compra.component.html',
@@ -21,8 +21,8 @@ export class CompraComponent {
 
   columnas = [
     {key: 'id', label: 'ID Compra'},
-    {key: 'descripcion', label: 'Descripcion de la compra'},
-    {key: 'fecha', label: 'Fecha de compra'},
+    {key: 'descripcion', label: 'Descripcion de la vista-compra'},
+    {key: 'fecha', label: 'Fecha de vista-compra'},
     {key: 'monto', label: 'Monto'}
   ];
 
@@ -39,12 +39,12 @@ export class CompraComponent {
     this.compraService.getComprasById(ClienteId)
       .subscribe({
         next: (response) => {
-          console.log('Datos de la compra:', response);
+          console.log('Datos de la vista-compra:', response);
           // Asignar directamente la respuesta al array.
           this.compras = Array.isArray(response) ? response : [response];
         },
         error: (error) => {
-          console.error('Error al obtener la compra:', error);
+          console.error('Error al obtener la vista-compra:', error);
         }
       });
   }

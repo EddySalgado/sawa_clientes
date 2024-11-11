@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {Ruta1Component} from "../vista-clientes/ruta1.component";
-import {Ruta2Component} from "../Areas_productos/ruta2.component";
+import {Ruta2Component} from "../vista-area_productos/ruta2.component";
 import {CommonModule} from "@angular/common";
 import {VistaProductosComponent} from "../vista-productos/vista-productos.component";
 import {VistaAreaTrabajdorComponent} from "../vista-area-trabajdor/vista-area-trabajdor.component";
-import {CompraComponent} from "../compra/compra.component";
+import {CompraComponent} from "../vista-compra/compra.component";
 import {VistaSucursalComponent} from "../vista-sucursal/vista-sucursal.component";
 import {VistaVentaComponent} from "../vista-venta/vista-venta.component";
 import {VistaProveedorComponent} from "../vista-proveedor/vista-proveedor.component";
@@ -24,13 +24,13 @@ export class VistaReusableComponent {
     switch (this.ruta) {
       case 'vista-clientes':
         return Ruta1Component;
-      case 'Areas_productos':
+      case 'vista-area_productos':
         return Ruta2Component;
       case 'vista_productos':
         return VistaProductosComponent;
       case 'vista_area_trabajador':
         return VistaAreaTrabajdorComponent; //retorna el componente de la vista-area-trabajador.
-      case 'compra':
+      case 'vista-compra':
         return CompraComponent; //retorna el componente de la vista de compras.
       case 'vista_sucursal':
         return VistaSucursalComponent; //retorna el componente de la vista de sucursal.

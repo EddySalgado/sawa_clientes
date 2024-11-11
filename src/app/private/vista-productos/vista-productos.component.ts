@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { CardViewComponent } from '../../shared/components/card-view/card-view.component';
+import { CardViewComponent } from '../../shared/components/card-view-reusable/card-view.component';
 import {ProductoService} from "../../core/services/api/productos/ProductoService";
 import {ProductoResponse} from "../../core/services/api/productos/ProductoResponse";
 import {JsonPipe} from "@angular/common";
@@ -31,7 +31,7 @@ export class VistaProductosComponent implements OnInit{
   constructor(private ProductosService: ProductoService) {}
 
   ngOnInit() {
-    this.obtenerProductos();  
+    this.obtenerProductos();
   }
 
   obtenerProductos() {

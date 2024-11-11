@@ -1,42 +1,43 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { CardViewComponent } from '../../shared/components/card-view/card-view.component';
-import {ClientesService} from "../../core/services/api/Clientes/GetClientesService";
-import {ClientesResponse} from "../../core/services/api/Clientes/ClientesResponse";
-import {DeleteEvent, TablaReusbaleComponent} from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import {CommonModule, JsonPipe} from "@angular/common";
 import {HeaderReusableComponent} from "../../shared/components/header-reusable/header-reusable.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {CardViewComponent} from "../../shared/components/card-view-reusable/card-view.component";
+import {DeleteEvent, TablaReusbaleComponent} from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import {
   VentanaEmergenteReusableComponent
 } from "../../shared/components/ventana-emergente-reusable/ventana-emergente-reusable.component";
 import {ButtomReusableComponent} from "../../shared/components/button-reusable/buttom-reusable.component";
 import {InputReusableComponent} from "../../shared/components/input-reusable/input-reusable.component";
-import {ReactiveFormsModule} from "@angular/forms";
-import { MatSnackBar } from '@angular/material/snack-bar';
-import {AlertComponent} from "../../shared/components/alert/alert.component";
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {AlertReusableComponent} from "../../shared/components/alert-reusable/alert-reusable.component";
+import { NotificacionReusableComponent } from "../../shared/components/notificacion_reusable/alert.component";
+import {ClientesResponse} from "../../core/services/api/Clientes/ClientesResponse";
+import {ClientesService} from "../../core/services/api/Clientes/ClientesService";
+import {NotificationInterface, NotificationService} from "../../core/services/NotificacionService";
 
 
 @Component({
   selector: 'app-vista-clientes',
   standalone: true,
-  imports: [CommonModule, CardViewComponent, TablaReusbaleComponent, JsonPipe,
+  imports: [CommonModule, TablaReusbaleComponent, JsonPipe,
     HeaderReusableComponent, VentanaEmergenteReusableComponent, ButtomReusableComponent,
-    InputReusableComponent, ReactiveFormsModule, AlertComponent, MatSnackBarModule, AlertReusableComponent,],
+    InputReusableComponent, ReactiveFormsModule, NotificacionReusableComponent, MatSnackBarModule, AlertReusableComponent,],
   templateUrl: './ruta1.component.html',
   styleUrl: './ruta1.component.css'
 })
+
 export class Ruta1Component implements OnInit {
-  alertaVisible = false; // estado para el alert resuable
-  tituloPadre: string = "Clientes";
+
+  notification: NotificationInterface | null = null; //objeto de notificacion
+
+  DialogVisible = false; // estado para el dialog resuable
+  tituloPadre: string = "Clientes"; //titulo para el header component
   modalAbierto = false; //estado de la venta emergente
-  mostrarAlert = false; //estado del alert
-  tipoAlert: 'success' | 'error' | 'warning' | 'info' = 'success'; //tipo de alert
-  mensajeAlert = ''; //mensaje a mostrar en el alert
   formularioCliente: FormGroup; //formulario de la ventana emergente
   idCliente: string = ""
-  NombreClienteSeleccionado : string = "" //cliente que se eliminara para mostrar en el alert
+  NombreClienteSeleccionado : string = "" //cliente que se eliminara para mostrar en el notificacion_reusable
 
   clientes: ClientesResponse[] = []; //model del cliente
 
@@ -48,7 +49,7 @@ export class Ruta1Component implements OnInit {
     { key: 'id_usuario', label: 'ID Usuario' }
   ];
 
-  constructor(private clientesService: ClientesService) { //  private snackBar: MatSnackBar
+  constructor(private clientesService: ClientesService,  private notificationService: NotificationService) { //  private snackBar: MatSnackBar
 
     this.formularioCliente = new FormGroup({  //estructura del formulario de la ventana emergente
       nombre: new FormControl('', [Validators.required]),
@@ -58,8 +59,17 @@ export class Ruta1Component implements OnInit {
       descuento: new FormControl('')
     });
 
-  }
+    this.notificationService.notification$.subscribe((notification) => {
+      this.notification = {
+        type: notification.type,
+        message: notification.message,
+      };
+      setTimeout(() => {
+        this.notification = null;
+      }, 3000);
+    });
 
+  }
 
   //al iniciar el componente
   ngOnInit() {
@@ -81,7 +91,6 @@ export class Ruta1Component implements OnInit {
         }
       });
   }
-
 
   botonNuevoCliente() {
     this.modalAbierto = true; //mostrar la ventana emergente
@@ -105,11 +114,8 @@ export class Ruta1Component implements OnInit {
       this.cerrarModal();
       this.formularioCliente.reset(); // Limpia el formulario después de guardar
     } else {
-      this.mostrarNotificacion('error', 'codigo 1521');
+      this.notificationService.showError('Error codigo: 1521');
     }
-
-
-
   }
 
   //enviar datos al servidor
@@ -118,37 +124,15 @@ export class Ruta1Component implements OnInit {
     this.clientesService.createCliente(nuevoCliente).subscribe({
       next: (response) => {
         console.log('Cliente creado correctamente:', response);
-        this.mostrarNotificacion('success', 'Cliente creado');
+        this.notificationService.showSuccess('Cliente creado');
         this.obtenerClientes()
       },
       error: (error) => {
         console.error('Error al crear cliente:', error);
-        this.mostrarNotificacion('error', 'codigo 1522');
+        this.notificationService.showError('No fue posible crear el cliente');
       }
     });
   }
-
-
-
-  mostrarNotificacion(tipoAlert, mensaje: string,){
-    this.tipoAlert = tipoAlert;
-    this.mensajeAlert = mensaje;
-    this.mostrarAlert = true;
-    setTimeout(() => {
-      this.mostrarAlert = false;
-    }, 3000);
-  }
-
- /* mostrarMensajeExito() {
-    this.snackBar.open('¡Cliente guardado exitosamente!', 'Cerrar', {
-      duration: 1000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      panelClass: ['success-snackbar']
-
-    });
-  }*/
-
 
   cerrarModal() {
     this.modalAbierto = false;
@@ -157,45 +141,38 @@ export class Ruta1Component implements OnInit {
   handleDeleteClick(event: DeleteEvent) {
     this.idCliente = event.id
     this.NombreClienteSeleccionado = event.nombre
-    this.mostrarAlerta()
-
-
-
+    this.mostrarDialog()
   }
 
-  //del alerty resuable
+  //del dialog
   onConfirm() {
     console.log('Confirmado');
-    // Aquí puedes ejecutar tu método personalizado
-    this.alertaVisible = false;
+    // Aquí puedes ejecutar tu metodo pérsonalixaso
+    this.DialogVisible = false;
 
     this.clientesService.deleteCliente(this.idCliente).subscribe({
       next: (response) => {
         console.log('Cliente eliminado correctamente:', response);
         this.obtenerClientes()
-        this.mostrarNotificacion('success', "Cliente eliminado");
+        this.notificationService.showSuccess('Cliente eliminado');
 
       },
       error: (error) => {
         console.error('Error al crear cliente:', error);
-        this.mostrarNotificacion('error', "No fue posible eliminarlo");
+        this.notificationService.showError('Error codigo: 1201');
       }
     });
   }
 
-  //alert reusable
+  //del aleert dialogo
   onCancel() {
     console.log('Cancelado');
-    this.alertaVisible = false;
+    this.DialogVisible = false;
   }
 
-  //mostrar alert reusable
-  mostrarAlerta() {
-    this.alertaVisible = true;
+  //mostrar notificacion_reusable reusable
+  mostrarDialog() {
+    this.DialogVisible = true;
   }
-
 
 }
-
-//
-

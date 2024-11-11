@@ -1,6 +1,6 @@
 
 
-<!--<app-card-view
+<!--<app-card-view-reusable
 dni="45678912"
 firstLastName="GARCÍA"
 secondLastName="LÓPEZ"
@@ -10,10 +10,10 @@ sex="M"
 issueDate="01/01/2020"
 expiryDate="01/01/2028"
 photoUrl="../../../assets/fotoUsuaurio.jpg">
-</app-card-view>-->
+</app-card-view-reusable>-->
 
 <app-alert-reusable
-  [isVisible]="alertaVisible"
+  [isVisible]="DialogVisible"
   title="Eliminar cliente"
   message="¿Deseas eliminar a {{NombreClienteSeleccionado}}?"
   confirmText="Aceptar"
@@ -24,12 +24,12 @@ photoUrl="../../../assets/fotoUsuaurio.jpg">
 </app-alert-reusable>
 
 
-<app-alert
-  *ngIf="mostrarAlert"
-  [type]="tipoAlert"
-  [message]="mensajeAlert"
-  [icon]="tipoAlert === 'success' ? 'check_circle' : 'error'">
-</app-alert>
+<app-notificacion_reusable
+  *ngIf="notification"
+  [type]="notification.type"
+  [message]="notification.message"
+  [icon]="notification.type === 'success' ? 'check_circle' : 'error'">
+</app-notificacion_reusable>
 
 
 <app-ventana-emergente-reusable

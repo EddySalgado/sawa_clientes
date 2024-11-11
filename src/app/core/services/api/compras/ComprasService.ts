@@ -22,7 +22,7 @@ export class ComprasService{
     return this.http.get<ComprasResponse[]>(
       `${this.apiUrl}${ENDPOINTS.COMPRAS.GET_BY_ID(id)}`
     ).pipe(
-      tap(response => console.log('Respuesta del compra:', response)),
+      tap(response => console.log('Respuesta del vista-compra:', response)),
       catchError(error => {
         console.error('Error en el servicio ', error)
         throw error

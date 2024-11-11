@@ -4,7 +4,7 @@ import { ProvedoresResponse } from "../../core/services/api/provedores/Provedore
 import { ProvedoresService } from "../../core/services/api/provedores/ProvedoresService";
 import { HeaderReusableComponent } from "../../shared/components/header-reusable/header-reusable.component";
 import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
-import { CardViewComponent } from "../../shared/components/card-view/card-view.component";
+import { CardViewComponent } from "../../shared/components/card-view-reusable/card-view.component";
 import {VentasResponse} from "../../core/services/api/ventas/VentasResponse";
 import {VentasService} from "../../core/services/api/ventas/VentasService";
 

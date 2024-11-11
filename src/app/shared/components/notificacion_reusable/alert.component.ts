@@ -1,9 +1,9 @@
-// alert.component.ts
+// notificacion_reusable.component.ts
 import { Component, Input } from '@angular/core';
 import {NgClass} from "@angular/common";
 
 @Component({
-  selector: 'app-alert',
+  selector: 'app-notificacion_reusable',
   template: `
     <div class="alert-container" [ngClass]="type">
       <div class="alert-content">
@@ -74,7 +74,7 @@ import {NgClass} from "@angular/common";
     }
   `]
 })
-export class AlertComponent {
+export class NotificacionReusableComponent {
   @Input() type: 'success' | 'error' | 'warning' | 'info' = 'success';
   @Input() icon: string = 'check_circle';
   @Input() message: string = '';
