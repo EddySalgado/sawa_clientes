@@ -1,8 +1,8 @@
 .table-container {
   width: 100%;
   margin: 1rem auto;
+  /*background: #aa04aa;*/
 
-  background: #aa04aa;
 }
 /*___________/
  */
@@ -15,11 +15,13 @@
   align-items: center;
 
 
+
 }
 
 /* Estilos para el campo de filtro */
-.mat-form-field { 
+.mat-form-field {
   height: 61px;
+
 }
 
 /* Estilos para el botón */
@@ -35,7 +37,7 @@
 
 
 .contenedor-tabla {
-  background: #87CEEB;
+
   max-height: 400px; /* Altura máxima antes de activar el scroll */
   overflow: auto;
   position: relative;
@@ -58,14 +60,14 @@ table {
 th {
   position: sticky;
   top: 0;
-  background: #87CEEB;
+
   z-index: 1;
 }
 
 /* Asegurarse que el paginador se mantenga en la parte inferior */
 mat-paginator {
   flex-shrink: 0; /* Evita que el paginador se encoja */
-  background: #6c757d;
+
 }
 
 /* Para mantener el ancho de las columnas consistente */

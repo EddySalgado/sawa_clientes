@@ -12,6 +12,17 @@ expiryDate="01/01/2028"
 photoUrl="../../../assets/fotoUsuaurio.jpg">
 </app-card-view>-->
 
+<app-alert-reusable
+  [isVisible]="alertaVisible"
+  title="Eliminar cliente"
+  message="¿Deseas eliminar a {{NombreClienteSeleccionado}}?"
+  confirmText="Aceptar"
+  cancelText="Cancelar"
+  [showCancel]="true"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()">
+</app-alert-reusable>
+
 
 <app-alert
   *ngIf="mostrarAlert"
@@ -109,7 +120,8 @@ photoUrl="../../../assets/fotoUsuaurio.jpg">
     [data]="clientes"
     [columns]="columns"
     [showActions]="true"
-    (onNuevoClick)="botonNuevoCliente()"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->
+    (onNuevoClick)="botonNuevoCliente()"
+    (onDeleteClick)="handleDeleteClick($event)"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->
   </app-tabla-reusbale>
 </div>
 

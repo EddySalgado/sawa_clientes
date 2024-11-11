@@ -2,6 +2,7 @@ export const ENDPOINTS = {
   CLIENTES: {
     GET_ALL: '/list-clientes',
     CREATE: '/create-cliente',
+    DELETE: (id: number | string) => `/delete-cliente/${id}`,
     GET_BY_ID: (id: number | string) => `/list-clientes/${id}` // Template para URL con parámetro
   },
 

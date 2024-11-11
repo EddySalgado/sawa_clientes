@@ -39,5 +39,19 @@ export class ClientesService {
       })
     );
   }
+
+  // Eliminar un cliente  (delete)
+  deleteCliente(id: number | string) {
+    return this.http.delete(
+      `${this.apiUrl}${ENDPOINTS.CLIENTES.DELETE(id)}`,
+    ).pipe(
+      tap(response => console.log('Respuesta del servidor:', response)),
+      catchError(error => {
+        console.log("Error al crear el cliente: ", error);
+        throw error
+      })
+
+    )
+  }
 }
 
