@@ -8,7 +8,7 @@ import {AreaTrabajadoresResponse} from "./AreaTrabajadoresResponse"; // Importa 
 @Injectable({
   providedIn: 'root'
 })
-export class AreaProductoService {
+export class AreaTrabajadoresService {
   private apiUrl = 'https://sawapi.up.railway.app/api';
 
   constructor(private http: HttpClient) {}

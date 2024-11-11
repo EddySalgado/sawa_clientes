@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComponenteZComponent } from './componente-z.component';
+import { VistaProveedorComponent } from './vista-proveedor.component';
 
-describe('ComponenteZComponent', () => {
-  let component: ComponenteZComponent;
-  let fixture: ComponentFixture<ComponenteZComponent>;
+describe('VistaProveedorComponent', () => {
+  let component: VistaProveedorComponent;
+  let fixture: ComponentFixture<VistaProveedorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ComponenteZComponent]
+      imports: [VistaProveedorComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ComponenteZComponent);
+    fixture = TestBed.createComponent(VistaProveedorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

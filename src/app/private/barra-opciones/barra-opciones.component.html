@@ -1,9 +1,15 @@
 <div class="quick-options-bar">
- <ul><!-- Añadidas Imagenes Clickeables -->
-   <li><img (click)="onOpcionClick('vista-clientes')" class="img-icon" src="./assets/clientes-50.png" /> </li>
-   <li><img (click)="onOpcionClick('Areas_productos')" class="img-icon" src="./assets/warehouse-100.png" /></li>
-   <li><img (click)="onOpcionClick('vista_productos')" class="img-icon" src="./assets/caja-150.png" /></li>
-   <li><img (click)="onOpcionClick('vista_area_trabajador')" class="img-icon" src="./assets/trabajo-permanente-100.png" /></li> <!-- opcion nueva -->
+ <ul>
+
+   <li><a (click)="onOpcionClick('vista-clientes')">Clientes</a></li>
+   <li><a (click)="onOpcionClick('Areas_productos')">Area_Producto</a></li>
+   <li><a (click)="onOpcionClick('vista_productos')">Producto</a></li>
+   <li><a (click)="onOpcionClick('vista_area_trabajador')">Area trabajador</a></li> <!-- opcion area de trabajador -->
+   <li><a (click)="onOpcionClick('compra')">Compra</a></li> <!-- opcion compra -->
+   <li><a (click)="onOpcionClick('vista_sucursal')">Sucursal</a></li> <!-- opcion sucursal -->
+   <li><a (click)="onOpcionClick('vista_venta')">Venta</a></li> <!-- opcion venta -->
+   <li><a (click)="onOpcionClick('vista_proveedor')">Proveedor</a></li> <!-- opcion proveedor -->
+   <li><a (click)="onOpcionClick('vista_trabajador')">Trabajador</a></li> <!-- opcion trabajador -->
 
  </ul>
 </div>
