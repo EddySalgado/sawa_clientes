@@ -21,7 +21,7 @@ export const ENDPOINTS = {
   },
 
   PROVEDORES:{
-    GET_BY_ID: (id: number | string) => `/list-provadores/${id}`
+    GET_BY_ID: (id: number | string) => `/list-provedores/${id}`
   },
 
   SUCURSALES:{
