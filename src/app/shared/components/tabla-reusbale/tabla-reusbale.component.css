@@ -13,15 +13,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-
-
 }
 
+.mat-row .mat-cell{/*Estilo agregado a fila sin datos */
+  text-align:center;
+  font-style: italic;
+}
+.mat-row .mensaje{/*Estilo del mensaje*/
+  font-size: medium;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  display: block;
+}
+.mat-row .icono{/*Estilo del icono */
+  display: block;
+  margin-bottom: 40px;
+}
+.mat-row .icono img {/*Modifica el tamaño*/
+  width: 40px;
+  height: auto;
+}
 /* Estilos para el campo de filtro */
 .mat-form-field {
-  height: 61px;
-
+  height: 60px;
+}
+::ng-deep .mat-mdc-text-field-wrapper:not(.dc-text-field--filled) .mat-mdc-form-field-infix {
+  padding-top: 10px;
+}
+/* Nesesario para cambiar el tamaño */
+::ng-deep html{
+  --mat-form-field-container-height: 40px;
 }
 
 /* Estilos para el botón */

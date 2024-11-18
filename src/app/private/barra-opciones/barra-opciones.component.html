@@ -1,15 +1,41 @@
 <div class="quick-options-bar">
- <ul>
+ <ul><!-- Agregadas Imgagenes y estilos a la barra de opciones -->
 
-   <li><a (click)="onOpcionClick('vista-clientes')">Clientes</a></li>
-   <li><a (click)="onOpcionClick('vista-area_productos')">Area_Producto</a></li>
-   <li><a (click)="onOpcionClick('vista_productos')">Producto</a></li>
-   <li><a (click)="onOpcionClick('vista_area_trabajador')">Area trabajador</a></li> <!-- opcion area de trabajador -->
-   <li><a (click)="onOpcionClick('vista-compra')">Compra</a></li> <!-- opcion vista-compra -->
-   <li><a (click)="onOpcionClick('vista_sucursal')">Sucursal</a></li> <!-- opcion sucursal -->
-   <li><a (click)="onOpcionClick('vista_venta')">Venta</a></li> <!-- opcion venta -->
-   <li><a (click)="onOpcionClick('vista_proveedor')">Proveedor</a></li> <!-- opcion proveedor -->
-   <li><a (click)="onOpcionClick('vista_trabajador')">Trabajador</a></li> <!-- opcion trabajador -->
+   <li>
+    <img (click)="onOpcionClick('vista-clientes')" src="./assets/clientes-100.png"/>
+    <a (click)="onOpcionClick('vista-clientes')">Clientes</a>
+   </li>
+   <li>
+    <img (click)="onOpcionClick('vista-area_productos')" src="./assets/warehouse-100.png"/>
+    <a (click)="onOpcionClick('vista-area_productos')">Area de Productos</a>
+   </li>
+   <li>
+    <img (click)="onOpcionClick('vista_productos')" src="./assets/caja-150.png"/>
+    <a (click)="onOpcionClick('vista_productos')">Productos</a>
+   </li>
+   <li>
+    <img (click)="onOpcionClick('vista_area_trabajador')" src="./assets/trabajo-permanente-100.png"/>
+    <a (click)="onOpcionClick('vista_area_trabajador')">Area de Trabajadores</a></li> <!-- opcion area de trabajador -->
+   <li>
+    <img (click)="onOpcionClick('vista-compra')" src="./assets/bolsa-de-papel-100.png"/>
+    <a (click)="onOpcionClick('vista-compra')">Compras</a>
+   </li> <!-- opcion vista-compra -->
+   <li>
+    <img (click)="onOpcionClick('vista_sucursal')" src="./assets/tienda-100.png"/>
+    <a (click)="onOpcionClick('vista_sucursal')" >Sucursales</a>
+   </li> <!-- opcion sucursal -->
+   <li>
+    <img (click)="onOpcionClick('vista_venta')" src="./assets/ventas-100.png"/>
+    <a (click)="onOpcionClick('vista_venta')" >Ventas</a>
+   </li> <!-- opcion venta -->
+   <li>
+    <img (click)="onOpcionClick('vista_proveedor')" src="./assets/proveedor-100.png"/>
+    <a (click)="onOpcionClick('vista_proveedor')">Proveedores</a>
+   </li> <!-- opcion proveedor -->
+   <li>
+    <img (click)="onOpcionClick('vista_trabajador')" src="./assets/empleado-100.png"/>
+    <a (click)="onOpcionClick('vista_trabajador')">Trabajadores</a>
+   </li> <!-- opcion trabajador -->
 
  </ul>
 </div>
