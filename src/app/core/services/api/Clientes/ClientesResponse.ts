@@ -3,5 +3,5 @@ export interface ClientesResponse {
   nombre: string;
   telefono: number;
   "email": string,
-  "id_usuario": number
+  "id_usuario": number | string
 }
