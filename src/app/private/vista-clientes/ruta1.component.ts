@@ -4,7 +4,6 @@ import {HeaderReusableComponent} from "../../shared/components/header-reusable/h
 import {ReactiveFormsModule} from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {CardViewComponent} from "../../shared/components/card-view-reusable/card-view.component";
 import {DeleteEvent, TablaReusbaleComponent} from "../../shared/components/tabla-reusbale/tabla-reusbale.component";
 import {
   VentanaEmergenteReusableComponent
@@ -16,7 +15,8 @@ import { NotificacionReusableComponent } from "../../shared/components/notificac
 import {ClientesResponse} from "../../core/services/api/Clientes/ClientesResponse";
 import {ClientesService} from "../../core/services/api/Clientes/ClientesService";
 import {NotificationInterface, NotificationService} from "../../core/services/NotificacionService";
-
+import {LocalStorageService} from "../../core/services/LocalStorageService";
+import {STORAGE_KEYS} from "../../constants/Storage-keys";
 
 @Component({
   selector: 'app-vista-clientes',
@@ -31,12 +31,11 @@ import {NotificationInterface, NotificationService} from "../../core/services/No
 export class Ruta1Component implements OnInit {
 
   notification: NotificationInterface | null = null; //objeto de notificacion
-
   DialogVisible = false; // estado para el dialog resuable
   tituloPadre: string = "Clientes"; //titulo para el header component
   modalAbierto = false; //estado de la venta emergente
   formularioCliente: FormGroup; //formulario de la ventana emergente
-  idCliente: string = ""
+  idCliente: string = "" //id del cliente selecionado de la tabla
   NombreClienteSeleccionado : string = "" //cliente que se eliminara para mostrar en el notificacion_reusable
 
   clientes: ClientesResponse[] = []; //model del cliente
@@ -49,7 +48,10 @@ export class Ruta1Component implements OnInit {
     { key: 'id_usuario', label: 'ID Usuario' }
   ];
 
-  constructor(private clientesService: ClientesService,  private notificationService: NotificationService) { //  private snackBar: MatSnackBar
+  constructor(private clientesService: ClientesService,
+              private notificationService: NotificationService,
+              private localStorageService: LocalStorageService,
+             ) { //  private snackBar: MatSnackBar
 
     this.formularioCliente = new FormGroup({  //estructura del formulario de la ventana emergente
       nombre: new FormControl('', [Validators.required]),
@@ -59,6 +61,7 @@ export class Ruta1Component implements OnInit {
       descuento: new FormControl('')
     });
 
+    //NOTIFIACION
     this.notificationService.notification$.subscribe((notification) => {
       this.notification = {
         type: notification.type,
@@ -68,6 +71,7 @@ export class Ruta1Component implements OnInit {
         this.notification = null;
       }, 3000);
     });
+
 
   }
 
@@ -79,7 +83,8 @@ export class Ruta1Component implements OnInit {
   //get al servidor
   obtenerClientes() {
 
-    const clienteId = 22; //canbiar
+    const clienteId = this.localStorageService.getItem(STORAGE_KEYS.ID_USER) || "0"; //canbiar
+    console.log(clienteId);
     this.clientesService.getClienteById(clienteId)
       .subscribe({
         next: (response) => {
@@ -92,10 +97,11 @@ export class Ruta1Component implements OnInit {
       });
   }
 
+  //NUEVOS CAMBIOS
   botonNuevoCliente() {
     this.modalAbierto = true; //mostrar la ventana emergente
   }
-
+  //NUEVOS CAMMBIOS
   botonagregarClienteVentanaEmergente() {
 
     if (this.formularioCliente.valid) { //si el formulario esta validado
@@ -105,7 +111,7 @@ export class Ruta1Component implements OnInit {
         nombre: this.formularioCliente.value.nombre,
         telefono: this.formularioCliente.value.telefono,
         email: this.formularioCliente.value.correo,
-        id_usuario: 22, // cambiar en el futuro
+        id_usuario: this.localStorageService.getItem(STORAGE_KEYS.ID_USER) || "0", // cambiar en el futuro
       };
 
       console.log(nuevoCliente)
@@ -117,8 +123,7 @@ export class Ruta1Component implements OnInit {
       this.notificationService.showError('Error codigo: 1521');
     }
   }
-
-  //enviar datos al servidor
+  //NUEVOS CAMBIOS
   enviarNuevoClienteApi(nuevoCliente){
 
     this.clientesService.createCliente(nuevoCliente).subscribe({
@@ -133,18 +138,17 @@ export class Ruta1Component implements OnInit {
       }
     });
   }
-
+  //NEUVOS CAMBIOS
   cerrarModal() {
     this.modalAbierto = false;
   }
-
+  //NEUVOS CAMBIOs
   handleDeleteClick(event: DeleteEvent) {
     this.idCliente = event.id
     this.NombreClienteSeleccionado = event.nombre
     this.mostrarDialog()
   }
-
-  //del dialog
+  //ULTIMOS CAMBIO  confirm del dialog elimina el cliente
   onConfirm() {
     console.log('Confirmado');
     // Aquí puedes ejecutar tu metodo pérsonalixaso
@@ -152,24 +156,22 @@ export class Ruta1Component implements OnInit {
 
     this.clientesService.deleteCliente(this.idCliente).subscribe({
       next: (response) => {
-        console.log('Cliente eliminado correctamente:', response);
         this.obtenerClientes()
         this.notificationService.showSuccess('Cliente eliminado');
 
       },
       error: (error) => {
-        console.error('Error al crear cliente:', error);
         this.notificationService.showError('Error codigo: 1201');
       }
     });
   }
-
+  //ultimos cambios
   //del aleert dialogo
   onCancel() {
     console.log('Cancelado');
     this.DialogVisible = false;
   }
-
+  //ULTIMOS CAMBIOS
   //mostrar notificacion_reusable reusable
   mostrarDialog() {
     this.DialogVisible = true;

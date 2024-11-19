@@ -2,10 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+interface UserResponse {
+  activo: boolean
+  correo: string
+  id: number
+  nombre: string
+  password: string
+}
 
 interface LoginResponse {
   login: boolean;
   status: number;
+  tipo_user: string;
+  id_user: number;
+  id_sucursal: number;
 }
 
 @Injectable({
