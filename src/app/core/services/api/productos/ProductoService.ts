@@ -25,5 +25,34 @@ export class ProductoService {
       })
     );
   }
+
+  // 2. Crear nuevo cliente (POST)
+  createProductos(cliente: ProductoResponse): Observable<ProductoResponse> {
+    return this.http.post<ProductoResponse>(
+      `${this.apiUrl}${ENDPOINTS.PRODUCTOS.CREATE}`,
+      cliente
+    ).pipe(
+      tap(response => console.log('Producto creado:', response)),
+      catchError(error => {
+        console.error('Error al crear el producto:', error);
+        throw error;
+      })
+    );
+  }
+
+  // Eliminar un cliente  (delete)
+  deleteProductos(id: number | string) {
+    return this.http.delete(
+      `${this.apiUrl}${ENDPOINTS.PRODUCTOS.DELETE(id)}`,
+    ).pipe(
+      tap(response => console.log('Respuesta del servidor:', response)),
+      catchError(error => {
+        console.log("Error al crear el cliente: ", error);
+        throw error
+      })
+
+    )
+  }
+
 }
 //

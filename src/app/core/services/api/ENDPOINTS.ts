@@ -11,6 +11,9 @@ export const ENDPOINTS = {
   },
 
   PRODUCTOS:{
+    GET_ALL: '/list-productos',
+    CREATE: '/create-producto',
+    DELETE: (id: number | string) => `/delete-producto/${id}`,
     GET_BY_ID: (id: number | string) => `/list-productos/${id}` // Template para URL con parámetro
   },
 

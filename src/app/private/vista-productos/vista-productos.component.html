@@ -1,8 +1,106 @@
+<app-alert-reusable
+  [isVisible]="DialogVisible"
+  title="Eliminar cliente"
+  message="¿Deseas eliminar a {{NombreClienteSeleccionado}}?"
+  confirmText="Aceptar"
+  cancelText="Cancelar"
+  [showCancel]="true"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()">
+</app-alert-reusable>
+
+<app-notificacion_reusable
+  *ngIf="notification"
+  [type]="notification.type"
+  [message]="notification.message"
+  [icon]="notification.type === 'success' ? 'check_circle' : 'error'">
+</app-notificacion_reusable>
+
+<app-ventana-emergente-reusable
+  [isOpen]="modalAbierto"
+  [title]="'Nuevo Producto'"
+  [width]="'600px'"
+  (closeModal)="cerrarModal()">
+
+  <form [formGroup]="formularioProductos" class="div_formulario_nuevo_cliente">
+
+    <!-- Contenido del modal -->
+
+
+    <!-- nombre -->
+    <app-input
+      formControlName="nombre"
+      label="Nombre *"
+      type="text"
+      placeholder="Nombre del producto"
+      [icon]="'📦'">
+    </app-input>
+
+    <!-- precio compra -->
+    <app-input
+      formControlName="precioCompra"
+      label="Precio compra"
+      type="numeric"
+      placeholder="Precio al que se compra el producto"
+      [icon]="'$'">
+    </app-input>
+
+    <!-- precio compra -->
+    <app-input
+      formControlName="precioVenta"
+      label="Precio de Venta"
+      type="numeric"
+      placeholder="Precio al cual se vende el producto"
+      [icon]="'$'">
+    </app-input>
+
+    <!-- cantidad -->
+    <app-input
+      formControlName="cantidad"
+      label="Cantidad"
+      type="text"
+      placeholder="Cuantos hay en existencia"
+      [icon]="'#'">
+    </app-input>
+
+    <!-- descuento -->
+    <app-input
+      formControlName="descuento"
+      label="Descuento"
+      type="numeric"
+      placeholder="descuento aplicable"
+      [icon]="'%'">
+    </app-input>
+
+
+    <!-- Aquí integra el combo box reusable -->
+    <!--<app-combo-box-reusable
+      [options]="comboOptions"
+      [placeholder]="'Seleccione una fruta'"
+      [selectedValue]="selectedOption"
+      (selectionChange)="onComboChange($event)"
+    ></app-combo-box-reusable>-->
+
+
+    <!-- boton guardar -->
+    <app-button
+      [label]="'Guardar'"
+      [disabled]="false"
+      (buttonClick)="botonagregarProductoVentanaEmergente()"
+      [type]="'primary'">
+    </app-button>
+
+  </form>
+
+</app-ventana-emergente-reusable>
+
 <app-header-reusable [titulo]="Titulo"></app-header-reusable>
 <div class = "contenedor-productos">
     <app-tabla-reusbale
         [data]="productos"
         [columns]="columnas"
-        [showActions]="false">
+        [showActions]="true"
+        (onNuevoClick)="botonNuevoProducto()"
+        (onDeleteClick)="handleDeleteClick($event)"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->
     </app-tabla-reusbale> <!--llamo al componente reusable-->
 </div>
