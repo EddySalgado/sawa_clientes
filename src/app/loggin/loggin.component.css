@@ -45,8 +45,7 @@ form {
 }
 
 .button.is-hidden { /*Oculta el boton al hacer click*/
-  opacity: 0;
-  visibility: hidden;
+  display: none;
 }
 
 .loading-spinner { /*Muestra animacion de estado de carga*/
@@ -56,11 +55,9 @@ form {
   border-top: 5px solid #333;
   border-radius: 50%;
   animation: spin 1s ease infinite;
-  position: absolute;
-  top:50%;
-  left:50%;
-  margin-top: -15px;
-  margin-left: -15px;
+  position: relative;
+  padding: auto;
+  margin-left: 44%;
   pointer-events: none;
 }
 
