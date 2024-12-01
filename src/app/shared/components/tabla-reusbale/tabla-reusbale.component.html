@@ -6,13 +6,13 @@
     <!--filtro de busqueda-->
     <mat-form-field class="mat-form-field">
       <mat-label>Filtro</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
+      <input class="input-filter" matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
     <app-button
       class="add-button"
-      [label]="'Nuevo cliente'"
+      [label]=tituloBoton
       [disabled]="false"
       [type]="'primary'"
       (buttonClick)="manejarClickNuevoBoton()"> <!--metodo a ejecutar por boton-->
@@ -31,7 +31,7 @@
         <td mat-cell *matCellDef="let element"> {{element[column.key]}} </td>
       </ng-container>
 
-      <!-- Acciones si se necesitan -->
+      <!-- Acciones si se necesitan del menu contextual -->
       <ng-container matColumnDef="actions" *ngIf="showActions">
         <th mat-header-cell *matHeaderCellDef>  </th>
         <td mat-cell *matCellDef="let element" class="action-cell">

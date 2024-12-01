@@ -31,6 +31,7 @@ export interface DeleteEvent {
 })
 export class TablaReusbaleComponent implements  OnInit{
   @Input() data: any[] = [];
+  @Input() tituloBoton = "Boton";
   @Input() columns: {key: string, label: string}[] = [];
   @Input() showActions: boolean = false;
   @Output() onDeleteClick = new EventEmitter<DeleteEvent>(); //evento para elimnar

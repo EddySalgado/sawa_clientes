@@ -35,5 +35,10 @@ export const ENDPOINTS = {
   },
   VENTAS:{
     GET_BY_ID: (id: number | string) => `/list-ventas/${id}`
+  },
+
+  PERMISOS:{
+    GET_PERMISOS_USUARIO: (id: number | string) => `/get-permisos/${id}`
   }
+
 };

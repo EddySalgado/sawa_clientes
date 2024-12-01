@@ -16,6 +16,7 @@ import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/t
 export class VistaSucursalComponent {
   //Titulo de la vista
   Titulo: string = "Sucursales"
+  titulo_boton_nuevo_regisro : string = "Nueva sucursal";
 
   sucursal: SucursalesResponse[] = [];
 

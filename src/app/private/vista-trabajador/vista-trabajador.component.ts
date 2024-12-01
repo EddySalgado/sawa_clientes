@@ -16,6 +16,7 @@ import { TablaReusbaleComponent } from "../../shared/components/tabla-reusbale/t
 export class VistaTrabajadorComponent {
   //Titulo de la vista
   Titulo: string = "Trabajadores"
+  titulo_boton_nuevo_regisro : string = "Nuevo trabajador";
 
   trabajador: TrabajadoresResponse[] = [];
 

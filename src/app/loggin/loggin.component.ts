@@ -21,6 +21,8 @@ import { STORAGE_KEYS } from "../constants/Storage-keys"
 export class LogginComponent {
   loginForm: FormGroup;
 
+
+
   constructor(private fb: FormBuilder, private authService: AuthService,
               private router: Router, private storageService : LocalStorageService,
               ) {
@@ -28,6 +30,10 @@ export class LogginComponent {
       correo: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   onSubmit() {
@@ -39,7 +45,7 @@ export class LogginComponent {
           console.log(response.id_user);
           console.log(response);
           this.storageService.setItem(STORAGE_KEYS.ID_USER, response.id_user); //guardar el id en memoria
-         this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard']);
         } else {
 
           if(response.tipo_user == "usuario no registrado"){

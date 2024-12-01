@@ -19,6 +19,7 @@ import { HeaderReusableComponent } from "../../shared/components/header-reusable
 export class VistaProductosComponent implements OnInit{
 //titulo de la tabla productos.
   Titulo: string = "Productos";
+  titulo_boton_nuevo_registro = "Nuevo producto";
 
   productos: ProductoResponse[] = [];
   columnas = [

@@ -17,6 +17,7 @@ import { AreaTrabajadoresService } from "../../core/services/api/area_trabajador
 export class VistaAreaTrabajdorComponent {
   //titulo de la tabla area trabajador.
   Titulo: string = "Area de trabajadores";
+  titulo_boton_nuevo_registro = "Nueva area"
 
   areaTrabajador: AreaTrabajadoresResponse[] = [];
 

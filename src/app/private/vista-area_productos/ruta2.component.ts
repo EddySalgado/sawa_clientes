@@ -16,7 +16,7 @@ import { HeaderReusableComponent } from "../../shared/components/header-reusable
 })
 export class Ruta2Component implements OnInit{
   title: string = "Area de productos"
-
+  titulo_boton_nuevo_registro = "Nueva area"
   areas: AreaProductoResponse[] = [];
   columnas = [
     {key: 'id', label: 'ID Area'},

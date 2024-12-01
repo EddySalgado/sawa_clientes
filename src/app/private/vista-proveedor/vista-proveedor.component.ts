@@ -18,6 +18,7 @@ import {VentasService} from "../../core/services/api/ventas/VentasService";
 export class VistaProveedorComponent {
   //Titulo de la vista
   Titulo: string = "Proveedores"
+  titulo_boton_nuevo_registro : string = "Nuevo provedor"
 
   proveedor: ProvedoresResponse[] = [];
 

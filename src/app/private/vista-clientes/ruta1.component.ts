@@ -37,7 +37,7 @@ export class Ruta1Component implements OnInit {
   formularioCliente: FormGroup; //formulario de la ventana emergente
   idCliente: string = "" //id del cliente selecionado de la tabla
   NombreClienteSeleccionado : string = "" //cliente que se eliminara para mostrar en el notificacion_reusable
-
+  titulo_del_boton : string = "Nuevo cliente";
   clientes: ClientesResponse[] = []; //model del cliente
 
   columns = [ // columnas de la tabla
