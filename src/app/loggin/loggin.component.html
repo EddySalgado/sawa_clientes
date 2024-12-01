@@ -21,12 +21,22 @@
         <app-button
           class="button"
           [label]="'Iniciar sesión'"
-          [disabled]="false"
+          [disabled]="isLoading"
           [type]="'primary'"
-          onclick="this.classList.add('is-hidden'); document.querySelector('.loading-spinner').style.display='block';"
+          (click)="onSubmit()"
+          *ngIf="!isLoading"
         ></app-button>
-        <div class="loading-spinner" style="display: none;"></div>
+        <div class="loading-spinner" *ngIf="isLoading"></div>
       </div>
     </form>
   </div>
+  <!-- Componente de alerta -->
+  <app-alert-reusable
+    [isVisible]="showAlert"
+    [title]="titleMessage"
+    [message]="alertMessage"
+    [confirmText]="'Aceptar'"
+    [showCancel]="false"
+    (confirm)="handleAlertConfirm()">
+  </app-alert-reusable>
 </div>
