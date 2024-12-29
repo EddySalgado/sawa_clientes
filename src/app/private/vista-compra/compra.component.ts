@@ -34,7 +34,7 @@ export class CompraComponent {
 
   obtenerCompras() {
     // Asumiendo que quieres obtener el cliente con ID 1
-    const ClienteId = 22; // O el ID que necesites
+    const ClienteId = 2; // O el ID que necesites
 
     this.compraService.getComprasById(ClienteId)
       .subscribe({

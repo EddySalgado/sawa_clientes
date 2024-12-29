@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {catchError, Observable, tap} from 'rxjs';
 import { ENDPOINTS } from '../ENDPOINTS';
-import {AreaTrabajadoresResponse} from "./AreaTrabajadoresResponse"; // Importa la interface
+import {AreaTrabajadoresResponse} from "./AreaTrabajadoresResponse";
+import {AreaProductoResponse} from "../area_producto/AreaProductoResponse"; // Importa la interface
 
 
 @Injectable({
@@ -25,5 +26,33 @@ export class AreaTrabajadoresService {
       })
     );
   }
+
+  // 2. Crear nueva Area-producto (POST).
+  createAreaTrabajadores(cliente: AreaTrabajadoresResponse): Observable<AreaTrabajadoresResponse> {
+    return this.http.post<AreaTrabajadoresResponse>(
+      `${this.apiUrl}${ENDPOINTS.AREA_TRABAJADORES.CREATE}`,
+      cliente
+    ).pipe(
+      tap(response => console.log('Area creada:', response)),
+      catchError(error => {
+        console.error('Error al crear el area del trabajadores:', error);
+        throw error;
+      })
+    );
+  }
+
+  // Eliminar un area-trabajador (delete).
+  deleteAreaTrabajadores(id: number | string) {
+    return this.http.delete(
+      `${this.apiUrl}${ENDPOINTS.AREA_TRABAJADORES.DELETE(id)}`,
+    ).pipe(
+      tap(response => console.log('Respuesta del servidor:', response)),
+      catchError(error => {
+        console.log("Error al eliminar el area de trabajador: ", error);
+        throw error
+      })
+
+    )
+  }
+
 }
-//

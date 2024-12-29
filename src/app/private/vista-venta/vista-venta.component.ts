@@ -36,7 +36,7 @@ export class VistaVentaComponent {
 
   obtenerVentas() {
 
-    const ClienteId = 22; //El ID que necesites.
+    const ClienteId = 2; //El ID que necesites.
 
     this.ventaService.getVentasById(ClienteId)
       .subscribe({

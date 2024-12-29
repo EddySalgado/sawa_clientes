@@ -83,7 +83,7 @@ export class Ruta1Component implements OnInit {
   //get al servidor
   obtenerClientes() {
 
-    const clienteId = this.localStorageService.getItem(STORAGE_KEYS.ID_USER) || "0"; //canbiar
+    const clienteId = this.localStorageService.getItem(STORAGE_KEYS.ID_USER) || "0"; //cambiar
     console.log(clienteId);
     this.clientesService.getClienteById(clienteId)
       .subscribe({
@@ -99,10 +99,10 @@ export class Ruta1Component implements OnInit {
 
   //NUEVOS CAMBIOS
   botonNuevoCliente() {
-    this.modalAbierto = true; //mostrar la ventana emergente
+    //this.modalAbierto = true; //mostrar la ventana emergente
   }
-  //NUEVOS CAMMBIOS
-  botonagregarClienteVentanaEmergente() {
+  //NUEVOS CAMBIOS
+ /* botonagregarClienteVentanaEmergente() {
 
     if (this.formularioCliente.valid) { //si el formulario esta validado
 
@@ -122,9 +122,9 @@ export class Ruta1Component implements OnInit {
     } else {
       this.notificationService.showError('Error codigo: 1521');
     }
-  }
+  } */
   //NUEVOS CAMBIOS
-  enviarNuevoClienteApi(nuevoCliente){
+/*  enviarNuevoClienteApi(nuevoCliente){
 
     this.clientesService.createCliente(nuevoCliente).subscribe({
       next: (response) => {
@@ -137,12 +137,12 @@ export class Ruta1Component implements OnInit {
         this.notificationService.showError('No fue posible crear el cliente');
       }
     });
-  }
+  } */
   //NEUVOS CAMBIOS
   cerrarModal() {
     this.modalAbierto = false;
   }
-  //NEUVOS CAMBIOs
+  //NUEVOS CAMBIOS
   handleDeleteClick(event: DeleteEvent) {
     this.idCliente = event.id
     this.NombreClienteSeleccionado = event.nombre

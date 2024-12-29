@@ -13,7 +13,7 @@ export class ProductoService {
 
   constructor(private http: HttpClient) {}
 
-  // 1. Parámetro en la ruta (Path Parameter)
+  // 1. Parámetro en la ruta (Path Parameter).
   getProductosById(id: number | string): Observable<ProductoResponse[]> {
     return this.http.get<ProductoResponse[]>(
       `${this.apiUrl}${ENDPOINTS.PRODUCTOS.GET_BY_ID(id)}`
@@ -26,7 +26,7 @@ export class ProductoService {
     );
   }
 
-  // 2. Crear nuevo cliente (POST)
+  // 2. Crear nuevo producto (POST).
   createProductos(cliente: ProductoResponse): Observable<ProductoResponse> {
     return this.http.post<ProductoResponse>(
       `${this.apiUrl}${ENDPOINTS.PRODUCTOS.CREATE}`,
@@ -40,8 +40,8 @@ export class ProductoService {
     );
   }
 
-  // Eliminar un cliente  (delete)
-  deleteProductos(id: number | string) {
+  // Eliminar un producto  (delete).
+  deleteProducto(id: number | string) {
     return this.http.delete(
       `${this.apiUrl}${ENDPOINTS.PRODUCTOS.DELETE(id)}`,
     ).pipe(

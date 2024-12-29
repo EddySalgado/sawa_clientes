@@ -41,6 +41,7 @@ export class VistaProductosComponent implements OnInit{
 
 //titulo de la tabla productos.
   Titulo: string = "Productos";
+  idProducto: string = "";
 
   productos: ProductoResponse[] = [];
   columnas = [
@@ -62,6 +63,7 @@ export class VistaProductosComponent implements OnInit{
       descuento: new FormControl('')
     });
 
+    //Notificación.
     this.notificationService.notification$.subscribe((notification) => {
       this.notification = {
         type: notification.type,
@@ -79,7 +81,7 @@ export class VistaProductosComponent implements OnInit{
 
   obtenerProductos() {
     // Asumiendo que quieres obtener el cliente con ID 1
-    const ClienteId = 22; // O el ID que necesites
+    const ClienteId = 2; // O el ID que necesites
 
     this.ProductosService.getProductosById(ClienteId)
       .subscribe({
@@ -95,18 +97,18 @@ export class VistaProductosComponent implements OnInit{
   }
 
   botonNuevoProducto() {
-    this.modalAbierto = true; //mostrar la ventana emergente
+    //this.modalAbierto = true; //mostrar la ventana emergente
   }
 
-  botonagregarProductoVentanaEmergente() {
+ /* botonagregarProductoVentanaEmergente() {
 
     if (this.formularioProductos.valid) { //si el formulario esta validado
 
-      /* const nuevoCliente: ClientesResponse = { //crear el usuario
+       const nuevoCliente: ProductoResponse = { //crear el usuario
         id: 0,
         nombre: this.formularioProductos.value.nombre,
-        telefono: this.formularioProductos.value.telefono,
-        email: this.formularioProductos.value.correo,
+        precioCompra: this.formularioProductos.value.precioCompra,
+        precioVenta: this.formularioProductos.value.precioVenta,
         id_usuario: 22, // cambiar en el futuro
       };
 
@@ -114,34 +116,34 @@ export class VistaProductosComponent implements OnInit{
 
       this.enviarNuevoClienteApi(nuevoCliente) //enviar datos al servidor
       this.cerrarModal();
-      this.formularioCliente.reset(); */ // Limpia el formulario después de guardar
+      this.formularioCliente.reset();  // Limpia el formulario después de guardar
     } else {
       this.notificationService.showError('Error codigo: 1521');
     }
-  }
+  } */
 
   //enviar datos al servidor
 /*  enviarNuevoClienteApi(nuevoCliente){
 
-    this.clientesService.createCliente(nuevoCliente).subscribe({
+    this.ProductosService.createProductos(nuevoCliente).subscribe({
       next: (response) => {
         console.log('Cliente creado correctamente:', response);
         this.notificationService.showSuccess('Cliente creado');
-        this.obtenerClientes()
+        this.obtenerProductos()
       },
       error: (error) => {
         console.error('Error al crear cliente:', error);
         this.notificationService.showError('No fue posible crear el cliente');
       }
     });
-  }   */
+  } */
 
   cerrarModal() {
     this.modalAbierto = false;
   }
 
   handleDeleteClick(event: DeleteEvent) {
-   // this.idCliente = event.id
+    this.idProducto = event.id
     this.NombreClienteSeleccionado = event.nombre
     this.mostrarDialog()
   }
@@ -151,9 +153,9 @@ export class VistaProductosComponent implements OnInit{
     console.log('Confirmado');
     // Aquí puedes ejecutar tu metodo pérsonalixaso
     this.DialogVisible = false;
-    this.notificationService.showSuccess('Cliente eliminado');
+    this.notificationService.showSuccess('Producto eliminado');
 
-/*    this.ProductosService.deleteProducto(this.idCliente).subscribe({
+    this.ProductosService.deleteProducto(this.idProducto).subscribe({
       next: (response) => {
         console.log('Cliente eliminado correctamente:', response);
         this.obtenerProductos()
@@ -164,7 +166,7 @@ export class VistaProductosComponent implements OnInit{
         console.error('Error al crear cliente:', error);
         this.notificationService.showError('Error codigo: 1201');
       }
-    }); */
+    });
   }
 
   //del aleert dialogo

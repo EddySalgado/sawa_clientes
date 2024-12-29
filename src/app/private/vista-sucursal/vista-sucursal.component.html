@@ -1,9 +1,28 @@
+<app-alert-reusable
+  [isVisible]="DialogVisible"
+  title="Eliminar Sucursal"
+  message="¿Deseas eliminar a {{NombreSucursalSeleccionado}}?"
+  confirmText="Aceptar"
+  cancelText="Cancelar"
+  [showCancel]="true"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()">
+</app-alert-reusable>
+
+<app-notificacion_reusable
+  *ngIf="notification"
+  [type]="notification.type"
+  [message]="notification.message"
+  [icon]="notification.type === 'success' ? 'check_circle' : 'error'">
+</app-notificacion_reusable>
+
 <app-header-reusable [titulo]="Titulo"></app-header-reusable>
 <div class = "contenedor-sucursal">
   <app-tabla-reusbale
     [data]="sucursal"
     [columns]="columnas"
-    [showActions]="false">
+    [showActions]="true"
+    (onDeleteClick)="handleDeleteClick($event)"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->
   </app-tabla-reusbale> <!--llamo al componente reusable-->
 </div>
 
