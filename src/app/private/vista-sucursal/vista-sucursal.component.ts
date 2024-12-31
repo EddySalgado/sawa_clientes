@@ -19,6 +19,7 @@ import {NotificationInterface, NotificationService} from "../../core/services/No
 export class VistaSucursalComponent implements OnInit{
   //Titulo de la vista
   Titulo: string = "Sucursales"
+  titulo_boton_nuevo_regisro : string = "Nueva sucursal";
 
   idSucursal: string = "";
 

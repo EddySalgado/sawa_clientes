@@ -16,6 +16,7 @@ import { CardViewComponent } from "../../shared/components/card-view-reusable/ca
 export class VistaVentaComponent {
   //Titulo de la vista
   Titulo: string = "Ventas"
+  titulo_boton_nuevo_regisro : string = "Nueva venta";
 
   venta: VentasResponse[] = [];
 

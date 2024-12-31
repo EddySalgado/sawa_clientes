@@ -30,6 +30,8 @@ export class Ruta2Component implements OnInit{
 
   NombreAreaproductoSeleccionado : string = "" //cliente que se eliminara para mostrar en el notificacion_reusable
 
+
+  titulo_boton_nuevo_registro = "Nueva area"
   areas: AreaProductoResponse[] = [];
   columnas = [
     {key: 'id', label: 'ID Area'},

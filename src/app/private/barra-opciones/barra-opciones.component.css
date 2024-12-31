@@ -5,10 +5,10 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 5%;
+  width: 7%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 .quick-options-bar ul {
@@ -32,7 +32,7 @@
 .quick-options-bar a{
   font-size:x-small;
   font-weight: bold;
-  color: #00c8ff;  
+  color: #00c8ff;
   text-align: center;
   margin-bottom:3px;
 }

@@ -20,6 +20,7 @@ import {NotificationInterface, NotificationService} from "../../core/services/No
 export class VistaAreaTrabajdorComponent implements OnInit{
   //titulo de la tabla area trabajador.
   Titulo: string = "Area de trabajadores";
+  titulo_boton_nuevo_registro = "Nueva area"
 
   idAreaTrabajador: string = "";
 

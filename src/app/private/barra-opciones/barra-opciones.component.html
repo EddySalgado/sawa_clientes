@@ -15,27 +15,39 @@
    </li>
    <li>
     <img (click)="onOpcionClick('vista_area_trabajador')" src="./assets/trabajo-permanente-100.png"/>
-    <a (click)="onOpcionClick('vista_area_trabajador')">Area de Trabajadores</a></li> <!-- opcion area de trabajador -->
+    <a (click)="onOpcionClick('vista_area_trabajador')">Area de Trabajadores</a></li>
    <li>
     <img (click)="onOpcionClick('vista-compra')" src="./assets/bolsa-de-papel-100.png"/>
     <a (click)="onOpcionClick('vista-compra')">Compras</a>
-   </li> <!-- opcion vista-compra -->
+   </li>
    <li>
     <img (click)="onOpcionClick('vista_sucursal')" src="./assets/tienda-100.png"/>
     <a (click)="onOpcionClick('vista_sucursal')" >Sucursales</a>
-   </li> <!-- opcion sucursal -->
+   </li>
    <li>
     <img (click)="onOpcionClick('vista_venta')" src="./assets/ventas-100.png"/>
     <a (click)="onOpcionClick('vista_venta')" >Ventas</a>
-   </li> <!-- opcion venta -->
+   </li>
    <li>
     <img (click)="onOpcionClick('vista_proveedor')" src="./assets/proveedor-100.png"/>
     <a (click)="onOpcionClick('vista_proveedor')">Proveedores</a>
-   </li> <!-- opcion proveedor -->
+   </li>
    <li>
     <img (click)="onOpcionClick('vista_trabajador')" src="./assets/empleado-100.png"/>
     <a (click)="onOpcionClick('vista_trabajador')">Trabajadores</a>
-   </li> <!-- opcion trabajador -->
+   </li>
+
+   <li *ngFor="let opcion of opcionesMenu">
+     <a *ngIf = "opcion.tiene_permiso"
+        (click)="onOpcionClick(opcion.vista)">
+       {{opcion.nombre_vista}}
+     </a>
+   </li>
+
+
 
  </ul>
 </div>
+
+//
+

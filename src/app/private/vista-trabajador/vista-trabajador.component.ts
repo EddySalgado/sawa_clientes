@@ -20,6 +20,7 @@ import {NotificationService} from "../../core/services/NotificacionService";
 export class VistaTrabajadorComponent implements OnInit{
   //Titulo de la vista
   Titulo: string = "Trabajadores"
+  titulo_boton_nuevo_regisro : string = "Nuevo trabajador";
 
   idTrabajador: string = "";
 

@@ -10,6 +10,7 @@ import {VistaAreaTrabajdorComponent} from "./private/vista-area-trabajdor/vista-
 import {VistaSucursalComponent} from "./private/vista-sucursal/vista-sucursal.component";
 import {VistaVentaComponent} from "./private/vista-venta/vista-venta.component";
 import {VistaProveedorComponent} from "./private/vista-proveedor/vista-proveedor.component";
+import {authGuard} from "./core/guards/auth.guard";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,6 +18,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: '',

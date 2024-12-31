@@ -16,6 +16,7 @@ import { ComprasService } from "../../core/services/api/compras/ComprasService";
 export class CompraComponent {
   //Titulo de la vista de compras.
   Titulo: string = "Compras";
+  titulo_boton_nuevo_registro = "Nueva compra"
 
   compras: ComprasResponse[] = [];
 

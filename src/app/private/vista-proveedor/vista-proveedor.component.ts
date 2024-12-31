@@ -21,6 +21,7 @@ import {NotificationInterface, NotificationService} from "../../core/services/No
 export class VistaProveedorComponent implements OnInit {
   //Titulo de la vista
   Titulo: string = "Proveedores"
+  titulo_boton_nuevo_registro : string = "Nuevo provedor"
 
   idProvedor: string = "";
 

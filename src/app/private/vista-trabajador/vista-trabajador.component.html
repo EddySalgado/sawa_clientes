@@ -20,6 +20,7 @@
 <div class = "contenedor-trabajador">
   <app-tabla-reusbale
     [data]="trabajador"
+    [tituloBoton]="titulo_boton_nuevo_regisro"
     [columns]="columnas"
     [showActions]="true"
     (onDeleteClick)="handleDeleteClick($event)"> <!-- envia el metodo a la tabla, que se lo pasara al boton-->

@@ -98,6 +98,7 @@
 <div class = "contenedor-productos">
     <app-tabla-reusbale
         [data]="productos"
+        [tituloBoton]="titulo_boton_nuevo_registro"
         [columns]="columnas"
         [showActions]="true"
         (onNuevoClick)="botonNuevoProducto()"
