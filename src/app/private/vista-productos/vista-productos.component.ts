@@ -41,11 +41,8 @@ export class VistaProductosComponent implements OnInit{
 
 //titulo de la tabla productos.
   Titulo: string = "Productos";
-<<<<<<< HEAD
   idProducto: string = "";
-=======
   titulo_boton_nuevo_registro = "Nuevo producto";
->>>>>>> 7c2cc0b8d7489b0f3063c142f08b9ead0a462851
 
   productos: ProductoResponse[] = [];
   columnas = [
